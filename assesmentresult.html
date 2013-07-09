@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Risk Assessment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-1.7.1.min.js"></script>
+<script src="jquery.mobile-1.3.1.min.js"></script>
+
+<!--<script src="bcra1.js" type="text/javascript"> </script>-->
+<script>
+$(document).ready(function() {
+	 $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+	  var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] =='abs1')
+        {
+       // alert(sParameterName[1]);
+		var abs1=sParameterName[1];
+		  //$('#race').append(val);	  	
+	   }
+	    if (sParameterName[0] =='avr1')
+        {
+       // alert(sParameterName[1]);
+		var avr1=sParameterName[1];
+		  	  	
+	   }
+	   
+	    if (sParameterName[0] =='abs2')
+        {
+       // alert(sParameterName[1]);
+		var abs2=sParameterName[1];
+		
+	
+	   }
+	    if (sParameterName[0] =='avr2')
+        {
+       // alert(sParameterName[1]);
+		var avr2=sParameterName[1];
+
+		  $('#lifetimerisk p#result90').append(' This woman (to age 90):'+ abs2+'% <br/>' );	
+		   $('#lifetimerisk p#result90').append('Average woman (to age 90):'+ avr2+'%' );	
+		     $('#liferiskdesc').append('Based on the information provided, the womans estimated risk for developing invasive breast cancer over her lifetime (to age 90) is '+abs2+'% compared to a risk of '+avr2+'% for a woman of the same age and race/ethnicity from the general U.S. population.');	  	  	
+	   }
+	    if (sParameterName[0] =='age')
+        {
+       // alert(sParameterName[1]);
+		var age=sParameterName[1];
+		  $('#basedage p#result').append(' This Woman (age '+age+') '+abs1+'% <br/>');	
+  	
+ 		  $('#basedage p#result').append(' Average woman (age '+age+') '+avr1+'%' );
+
+	   }
+	    if (sParameterName[0] =='minus1')
+        {
+       // alert(sParameterName[1]);
+		var minus1=sParameterName[1];
+		
+		  $('#desc').append('Based on the information provided, the womans estimated risk for developing invasive breast cancer over the next 5 years is '+abs1 +'% compared to a risk of '+ avr1 +'% for a woman of the same age and race/ethnicity from the general U.S. population. This calculation also means that the womans risk of NOT getting breast cancer over the next 5 years is '+ minus1 +'%.');	  	
+	   }
+/* if (sParameterName[0] =='race')
+        {
+       // alert(sParameterName[1]);
+		var race=sParameterName[1];
+		  	  $('#race').append(race +": "); 	
+	   }*/
+	    if (sParameterName[0] =='subrace')
+        {
+       // alert(sParameterName[1]);
+	    $('#race').append("Asian-American : "); 
+		var subrace=sParameterName[1];
+		
+				if(subrace=='8')
+		{
+				  	  $('#race').append("Japanese"); 
+		}
+				if(subrace=='9')
+		{
+				  	  $('#race').append("Filipino"); 
+		}
+				if(subrace=='10')
+		{
+				  	  $('#race').append("Hawaiian"); 
+		}
+				if(subrace=='7')
+		{
+				  	  $('#race').append("Chinese"); 
+		}
+					if(subrace=='11')
+		{
+				  	  $('#race').append("Other Pacific Islander"); 
+		}
+					if(subrace=='12')
+		{
+				  	  $('#race').append("Other Asian-American"); 
+		}
+		
+	   }
+   }
+    
+});
+$(document).on('pagebeforecreate', 'body', function(){     
+    var interval = setInterval(function(){
+      $.mobile.loading( "show", {
+text: "Loading",
+textVisible: true,
+theme: "a",
+html: ""
+});
+        clearInterval(interval);
+    },1);    
+});
+
+$(document).on('pageshow', 'body', function(){  
+    var interval = setInterval(function(){
+       $.mobile.loading('hide');
+        clearInterval(interval);
+    },1);      
+});
+$(document).bind("mobileinit", function () {
+$.mobile.defaultPageTransition = 'none';
+});
+</script>
+</head>
+<body>
+<article id="riskassessment" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader">
+     <!--   <div id="assesheadertext"> </div>-->
+      <table id="wrapper">
+          <tr>
+             <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+        </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+ <p class="titletext">Breast Cancer Risk Assesment Result</p>
+   <div id="Reminder">
+        <p> <b> Reminder: </b>The Breast Cancer Risk Assessment Tool was designed for use by health professionals. If you are not a health professional, you are encouraged to discuss these results and your personal risk of breast cancer with your doctor. </p>
+      </div>
+      <!-- End of reminder -->
+      <div id="Results">
+        <p><b> Race/Ethnicity: </b> </p>
+        <p id="race"> </p>
+        <br/> 
+        <b> 5 Year Risk </b>
+        <div id="basedage">
+          <p id="result"> </p>
+          <b> Explanation </b> <br/>
+          <p id="desc"> </p>
+        </div>
+        <!-- end of basedage -->
+        <br/>
+        <div id="lifetimerisk"> <b>Lifetime Risk </b>
+          <p id="result90"></p>
+          <b> Explanation </b> <br/>
+          <p id="liferiskdesc"> </p>
+        </div>
+      </div>
+      <!-- End of results --> 
+    </div>
+    <!-- end of main content --> 
+  </div>
+  <!-- end of content -->
+<div class="ui-block-a"><a href="assessriskcont.html#recommand" data-role="button" rel="external" id="riskbtn"> See Recommendation </a></div>   
+</div>
+ <div class="clear"> </div>
+  <footer id="footer"> </footer>
+</article>
+</body>
+</html>

@@ -1,0 +1,238 @@
+@charset "utf-8";
+/* CSS Document */
+ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+ display: none;
+<- Crashes Chrome on hover -webkit-appearance: none;
+ margin: 0;
+<-- Apparently some margin are still there even though it's hidden */
+}
+html, body {
+	height: 100%;
+	text-align: left;
+	text-shadow:none;
+}
+.clear {
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.ui-body-c, .ui-overlay-c {
+	background-image:-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)) !important;
+	background-image:-webkit-linear-gradient(#FFF, #FFF) !important;
+	background-image:-moz-linear-gradient(#FFF, #FFF) !important;
+	background-image:-ms-linear-gradient(#FFF, #FFF) !important;
+	background-image:-o-linear-gradient(#FFF, #FFF) !important;
+	background-image:linear-gradient(#FFF, #FFF) !important;
+}
+/* Loader Styles */
+
+.ui-icon-loading {
+	background-image: url("ajax-loader.gif") !important;
+	background-size: 46px 46px;
+}
+label.error {
+	color: red;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-top: 0.5em;
+	width: 100%;
+	float: none;
+	text-align: center;
+}
+ @media screen and (orientation: portrait) {
+label.error {
+	margin-left: 0;
+	display: block;
+}
+}
+ @media screen and (orientation: landscape) {
+label.error {
+	display: inline-block;
+	margin-left: 22%;
+}
+}
+em {
+	color: red;
+	font-weight: bold;
+	padding-right: .25em;
+}
+#main-content {
+/*	left: 50%;
+	margin:-55px 0 0 -135px;*/
+	padding: 3%;
+	position: relative;
+	width:100%;
+	    word-wrap: break-word;
+}
+/* font import */
+@font-face {
+	font-family: 'Conv_ufonts.com_whitney-light_1_';
+	src: url('ufonts.com_whitney-light_1_.eot');
+	src: url('ufonts.com_whitney-light_1_.eot') format('embedded-opentype'), url('ufonts.com_whitney-light_1_.woff') format('woff'), url('ufonts.com_whitney-light_1_.ttf') format('truetype'), url('ufonts.com_whitney-light_1_.svg#fonts.com_whitney-light_1_') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.ui-content {
+	font-family: 'Conv_ufonts.com_whitney-light_1_';
+	padding: 0 !important;
+}
+/*.ui-icon {
+	background-image: url("ui-icons_222222_256x240.png") !important;
+}*/
+/* Modal Popup */
+#dialog-message {
+	display:none;
+}
+/* Overlay */
+#simplemodal-overlay {
+	background-color:#000;
+}
+/* Container */
+#simplemodal-container {
+	height:100px;
+	width:200px;
+	color:#bbb;
+	background-color:#333;
+	border:4px solid #444;
+	padding:12px;
+}
+#simplemodal-container .simplemodal-data {
+	padding:8px;
+}
+#simplemodal-container code {
+	background:#141414;
+	border-left:3px solid #65B43D;
+	color:#bbb;
+	display:block;
+	font-size:12px;
+	margin-bottom:12px;
+	padding:4px 6px 6px;
+}
+#simplemodal-container a {
+	color:#ddd;
+}
+#simplemodal-container a.modalCloseImg {
+	background:url(x.png) no-repeat;
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-15px;
+	right:-16px;
+	cursor:pointer;
+}
+#simplemodal-container h3 {
+	color:#84b8d9;
+}
+/* Button styles */
+.ui-focus, .ui-btn:focus {
+	box-shadow: none !important;
+}
+.ui-shadow {
+	box-shadow: none;
+}
+.ui-btn-up-c, .ui-btn-hover-c {
+	background: none repeat scroll 0 0 transparent !important;
+	border: medium none !important;
+	text-shadow: none !important;
+}
+.ui-btn-inner {
+	border:none !important;
+	padding: 0 !important;
+}
+.ui-btn {
+	height: 40px;
+	
+	margin: 0.5em 0;
+}
+#btmheader {
+	background-color: transparent !important;
+	background-image: url("donebtnbg.png");
+	background-repeat: repeat-x;
+	height: 63px;
+	opacity: 1;
+margin-right: 2%;
+}
+#btmheader .ui-btn {
+	float: right;
+	width: 100px;
+}
+#donebtn {
+	background-color: transparent !important;
+	background-image:url(donebtn.png);
+	background-repeat:no-repeat;
+	height:42px;
+	width:104px;
+	opacity: 1;
+}
+#topmenu .ui-btn {
+	float: left;
+	width: 80px;
+	margin-bottom:0;
+	height:33px;
+}
+#topmenu2 .ui-btn {
+	float: left;
+	margin-bottom:0;
+	margin-top: 0;
+	width:80px;
+	height:33px;
+}
+#header {
+	height:170px;
+	width: 100%;
+}
+#footer {
+	background-image:url(footerbg.png);
+	background-repeat:repeat-x;
+	height:22px;
+}
+.menu {
+	left: 50%;
+	margin-left: -219px;
+	margin-top:14px;
+	position: absolute;
+	top: 0;
+}
+
+.ui-icon-shadow {
+    box-shadow: none !important;
+}
+/*#calculate
+{
+	background-color: transparent !important;
+	background-image: url("nobgbtn.png");
+	background-repeat: no-repeat;
+	height: 42px;
+	opacity: 1;
+	width: 104px;
+}*/
+
+/* Self Check */
+
+#selfcheck1 #headertext {
+    background-image: url("selfheadertext.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 30px;
+    left: 50%;
+    margin-left:-70px;
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    width: 169px;
+}
+
+
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainbtn .ui-btn-inner {
+padding: 0.3em !important;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="utility.js" type="text/javascript" ></script>
+<script type='text/javascript'>
+
+$(function () {
+    $("#dialog").dialog({
+        close: function () {
+            window.location = "findcenter.html"
+        },
+        buttons: {
+            "OK": function () {
+                $(this).dialog("close");
+            }
+        }            
+    });
+});
+$(document).bind("mobileinit", function () {
+$.mobile.defaultPageTransition = 'none';
+});
+</script>
+</head>
+<body>
+<!--<div data-role="popup" id="popup">
+  <p id="popupMsg"></p>
+  <a href="riskassessment.html" data-role="button" data-rel="back" data-theme="c" id="okButton">Ok</a> </div>
+  -->
+  <div id="dialog"><img src="ex.png" alt="ex" align="middle" class="centerimg"/>
+  <div class="clear"> </div>
+   Internet connection is required to locate Mammography centers</div>
+</body>
+</html>

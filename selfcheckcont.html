@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
+<!--  <link rel="stylesheet" type="text/css" href="jquery.fancybox.css">-->
+	<link rel="stylesheet" type="text/css" href="jquery.fancybox.css" media="screen" />
+  <!--  <script src="jquery-1.9.1.js"></script>-->
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery.mobile-1.3.1.min.js"></script>
+<!--  <script type='text/javascript' src="jquery.fancybox.pack.js"></script>-->
+<script type="text/javascript" src="jquery.fancybox.js"></script>
+  <script>
+  var $ = jQuery.noConflict();
+ $(window).load(function(){ 	
+$(document).ready(function() {
+    // initialize the lightbox 
+    $(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 700,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 1000,
+
+				closeClick : true,
+				
+				arrows :false,
+				
+				helpers : {
+					overlay : null
+				}
+			});
+});
+});//]]>  
+  $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+
+/* Swipping through pages */	
+$(document).on('swipeleft', 'article', function(event){
+    if(event.handled !== true) // This will prevent event triggering more then once
+    { 
+	
+        var nextpage = $(this).next('article[data-role="page"]');
+        // swipe using id of next page if exists
+        if (nextpage.length > 0) {
+            $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);						
+        }
+	}
+         event.handled = true;
+	
+     return false;         
+});
+
+$(document).on('swiperight', 'article', function(event){   
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {   
+        var prevpage = $(this).prev('article[data-role="page"]');
+        if (prevpage.length > 0) {
+            $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);		
+        }
+        event.handled = true;
+      }
+    return false;            
+});
+
+
+  </script>
+  </head>
+  <body id="selfcheck1">
+<article id="stepone" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="selfheadertext.png" />--> Self-Check</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Breast self-examination</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Step 1: Looking </p>
+        <p >Always carry out a BSE in good light. </p>
+<p> <a class="fancybox-effects-d" rel="fancybox-button" href="1-01.png" title=" " data-ajax="false" >
+    <img src="selfstep1.png" alt="" class="centerimg"/>
+</a>    </p>    
+     
+        <div class="clear"> </div>
+        <p>Standing in front of a mirror, place
+        your hands on your hips and press
+        down firmly. </p>
+        <p>Signs to look for include dimpling,
+        puckering, redness or scaliness of
+        the breast skin or nipple, discharge
+        from the nipples, changes in breast
+        size or shape, or nipple pulled
+        inward to sideways. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="selfcheck.html" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="selfcheckcont.html#steptwo" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- End of Step1 -->
+<article id="steptwo" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="selfheadertext.png" />--> Self-Check</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Breast self-examination</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Step 2: Feeling</p>
+        <p>Lying flat on your back, examine 
+        each breast one by one. </p>
+        <p>For left breast examination, place 
+        your left hand under the head. </p>
+<p> <a class="fancybox-effects-d" rel="fancybox-button" href="1-02.png" title=" " data-ajax="false" >
+    <img src="step2_1.png" alt="" class="centerimg" width="50%"/>
+</a>    </p>         
+       
+        <p>Feel the left breast with your right
+        hand using the pads of your three
+        middle fingers, starting in the
+        underarm area.</p>
+        <p>Using overlapping, small circular
+        motions of the pads of the fingers,
+        feel the breast tissue using light,
+        edium and firm pressure.</p>
+        <p>Move your fingers slowly up to the
+        rib cage.</p>
+<p> <a class="fancybox-effects-d" rel="fancybox-button" href="1-03.png" title=" " data-ajax="false" >
+    <img src="step2_2.png" alt="" class="centerimg"/>
+</a>    </p>            
+        
+        <p >Next, move your fingers closer towards
+        the nipple and the slowly up to the
+        collarbone using the same small, circular
+        motions and three levels of pressure. </p>
+        <p>Continue this in an
+        up-and-down pattern all
+        the way across your
+        breast, starting from
+        the underarm upto
+        the middle of the
+        chest. 
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-04.png" title=" " data-ajax="false" >
+    <img src="step2_3.png" alt="" class="centerimg"/>
+</a>    </p>   
+      </p>
+        <p style=" padding-top: 3px;">Examine the right breast in a similar
+        manner with the three middle
+        fingers of your left hand, keeping
+        the right hand behind the head. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="selfcheckcont.html#stepone" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <!-- <div class="ui-block-b"><a href="#" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>--> 
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- End of Step2 -->
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>What is breast cancer?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="utility.js" type="text/javascript" ></script>
+<script type='text/javascript'>
+
+$(function () {
+    $("#dialog").dialog({
+        close: function () {
+            window.location = "index.html"
+        },
+        buttons: {
+            "No Thanks": function () {
+//                $(this).dialog("close");
+window.location='index_home.html';
+            },
+			"OK": function () {
+				var email=document.getElementById('emailid').value;
+				var phno=document.getElementById('phnumber').value;
+			//	alert(email+phno);
+              $.getJSON("http://www.mobiletest.mednl.com/sendnewsletter.php?jsoncallback=?&email="+email+"&phno="+phno, function(data){ 
+alert("Successfull subscription request");
+
+window.location='index.html';
+});
+            }
+        }            
+    });
+});
+$(document).bind("mobileinit", function () {
+$.mobile.defaultPageTransition = 'none';
+});
+</script>
+
+<body>
+ <div id="dialog">
+ <form action="" method="post" enctype="text/plain">
+ <label>
+ please enter your email id if you would like to receive updates from Breast Health website
+ </label>
+ <div class="clear"> </div>
+ <label>E-mail: </label>
+<input type="text" name="mail" id="emailid" required><br>
+ <div class="clear"> </div>
+<label> Phone Number:  </label>
+<input type="tel" name="phnumber" id="phnumber" required><br>
+<!--<input type="submit" value="Ok">-->
+<!--<div class="ui-dialog-buttonset">
+<button id="ok"  class="ui-button ui-state-default ui-corner-all ui-button-text-only okbtn" role="button" aria-disabled="false">
+<span class="ui-button-text">OK</span>
+</button>
+</div>-->
+<div class="clear"> </div>
+</form>
+</div>
+</body>
+</html>

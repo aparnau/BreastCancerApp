@@ -1,0 +1,540 @@
+@charset "utf-8";
+/* CSS Document */
+ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+ display: none;
+<- Crashes Chrome on hover -webkit-appearance: none;
+ margin: 0;
+<-- Apparently some margin are still there even though it's hidden */
+}
+html, body {
+	height: 100%;
+	text-align: left;
+	text-shadow:none;
+}
+.clear {
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.ui-body-c, .ui-overlay-c {
+	background-image:-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)) !important;
+	background-image:-webkit-linear-gradient(#FFF, #FFF) !important;
+	background-image:-moz-linear-gradient(#FFF, #FFF) !important;
+	background-image:-ms-linear-gradient(#FFF, #FFF) !important;
+	background-image:-o-linear-gradient(#FFF, #FFF) !important;
+	background-image:linear-gradient(#FFF, #FFF) !important;
+}
+/* Loader Styles */
+
+.ui-icon-loading {
+	background-image: url("ajax-loader.gif") !important;
+	background-size: 46px 46px;
+}
+label.error {
+	color: red;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-top: 0.5em;
+	width: 100%;
+	float: none;
+	text-align: center;
+}
+ @media screen and (orientation: portrait) {
+label.error {
+	margin-left: 0;
+	display: block;
+}
+}
+ @media screen and (orientation: landscape) {
+label.error {
+	display: inline-block;
+	margin-left: 22%;
+}
+}
+em {
+	color: red;
+	font-weight: bold;
+	padding-right: .25em;
+}
+#main-content {
+/*	left: 50%;
+	margin:-55px 0 0 -135px;*/
+	padding: 3%;
+	position: relative;
+	width:100%;
+	    word-wrap: break-word;
+}
+/* font import */
+@font-face {
+	font-family: 'Conv_ufonts.com_whitney-light_1_';
+	src: url('ufonts.com_whitney-light_1_.eot');
+	src: url('ufonts.com_whitney-light_1_.eot') format('embedded-opentype'), url('ufonts.com_whitney-light_1_.woff') format('woff'), url('ufonts.com_whitney-light_1_.ttf') format('truetype'), url('ufonts.com_whitney-light_1_.svg#fonts.com_whitney-light_1_') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.ui-content {
+	font-family: 'Conv_ufonts.com_whitney-light_1_';
+	padding: 0 !important;
+}
+/*.ui-icon {
+	background-image: url("ui-icons_222222_256x240.png") !important;
+}*/
+/* Modal Popup */
+#dialog-message {
+	display:none;
+}
+/* Overlay */
+#simplemodal-overlay {
+	background-color:#000;
+}
+/* Container */
+#simplemodal-container {
+	height:100px;
+	width:200px;
+	color:#bbb;
+	background-color:#333;
+	border:4px solid #444;
+	padding:12px;
+}
+#simplemodal-container .simplemodal-data {
+	padding:8px;
+}
+#simplemodal-container code {
+	background:#141414;
+	border-left:3px solid #65B43D;
+	color:#bbb;
+	display:block;
+	font-size:12px;
+	margin-bottom:12px;
+	padding:4px 6px 6px;
+}
+#simplemodal-container a {
+	color:#ddd;
+}
+#simplemodal-container a.modalCloseImg {
+	background:url(x.png) no-repeat;
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-15px;
+	right:-16px;
+	cursor:pointer;
+}
+#simplemodal-container h3 {
+	color:#84b8d9;
+}
+/* Button styles */
+.ui-focus, .ui-btn:focus {
+	box-shadow: none !important;
+}
+.ui-shadow {
+	box-shadow: none;
+}
+.ui-btn-up-c, .ui-btn-hover-c {
+	background: none repeat scroll 0 0 transparent !important;
+	border: medium none !important;
+	text-shadow: none !important;
+}
+.ui-btn-inner {
+	border:none !important;
+	padding: 0 !important;
+}
+.ui-btn {
+	height: 40px;
+	
+	margin: 0.5em 0;
+}
+#btmheader {
+	background-color: transparent !important;
+	background-image: url("donebtnbg.png");
+	background-repeat: repeat-x;
+	height: 63px;
+	opacity: 1;
+margin-right: 2%;
+}
+#btmheader .ui-btn {
+	float: right;
+	width: 100px;
+}
+#donebtn {
+	background-color: transparent !important;
+	background-image:url(donebtn.png);
+	background-repeat:no-repeat;
+	height:42px;
+	width:104px;
+	opacity: 1;
+}
+/*#topmenu .ui-btn {
+	float: left;
+	width: 160px;
+	margin-bottom:0;
+	height:65px;
+}*/
+#topmenu2 .ui-btn {
+	float: left;
+	margin-bottom:0;
+	margin-top: 0;
+	width:160px;
+	height:65px;
+}
+#header {
+	height:170px;
+	width: 100%;
+}
+#footer {
+	background-image:url(footerbg.png);
+	background-repeat:repeat-x;
+	height:22px;
+}
+.menu {
+	left: 50%;
+	margin-left: -219px;
+	margin-top:14px;
+	position: absolute;
+	top: 0;
+}
+menu img
+#topmenu2 .menu {
+	margin-left: -155px;
+	margin-top: 93px;
+}
+#topmenu {
+	background-image: url("topbg.png");
+	background-repeat: repeat-x;
+	height: 88px;
+	width: 100%;
+}
+#topmenu2 {
+	background-image:url(topbg2.png);
+	background-repeat: repeat-x;
+	height:74px;
+	width:100%;
+}
+#titleheader {
+	background-image:url(headerbgstrip.png);
+	background-repeat:repeat-x;
+	height:95px;
+}
+#headertext {
+	background-image: url("knwheader.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 30px;
+	left: 50%;
+	margin-left: -219px;
+	margin-top: 50px;
+	position: absolute;
+	top: 0;
+	width: 430px;
+}
+#knowabc {
+	background-color: transparent !important;
+	background-image:url(knwabc.png);
+	background-repeat:no-repeat;
+	height:63px;
+	width:151px;
+	opacity: 1;
+	float:left;
+}
+#accessrisk {
+	background-color: transparent !important;
+	background-image:url(assesrisk.png);
+	background-repeat:no-repeat;
+	height:63px;
+	width:151px;
+	opacity: 1;
+	float:left;
+}
+#selfcheck {
+	background-color: transparent !important;
+	background-image:url(selfcheck.png);
+	background-repeat:no-repeat;
+	height:63px;
+	width:151px;
+	opacity: 1;
+	float:left;
+}
+#findcenter {
+	background-color: transparent !important;
+	background-image:url(findcenter.png);
+	background-repeat:no-repeat;
+	height:63px;
+	width:151px;
+	opacity: 1;
+	float:left;
+}
+#reminder {
+	background-color: transparent !important;
+	background-image:url(reminder.png);
+	background-repeat:no-repeat;
+	height:63px;
+	width:151px;
+	opacity: 1;
+}
+/* KnowabtABC */
+
+#facts {
+	background-color: transparent !important;
+	background-image:url(interesting.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#whatis {
+	background-color: transparent !important;
+	background-image:url(whatbc.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#statistics {
+	background-color: transparent !important;
+	background-image:url(statistics.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#india {
+	background-color: transparent !important;
+	background-image:url(indiastat.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#signs {
+	background-color: transparent !important;
+	background-image:url(signs.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#treatment {
+	background-color: transparent !important;
+	background-image:url(treatment.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+#tips {
+	background-color: transparent !important;
+	background-image:url(tips.png);
+	background-repeat:no-repeat;
+	height:44px;
+	width:283px;
+	opacity: 1;
+}
+.bottomnav {
+	position: relative;
+	width: 100%;
+}
+.btnnav {
+	float: left;
+	padding-left: 2%;
+	padding-top: 5%;
+	width: 100%;
+}
+#leftbtn {
+	float: left;
+}
+#leftnav {
+	background-color: transparent !important;
+	background-image:url(leftarrow.png);
+	background-repeat:no-repeat;
+	height:34px;
+	width:37px;
+	opacity:1;
+}
+#rightnav {
+	background-color: transparent !important;
+	background-image:url(rightarrow.png);
+	background-repeat:no-repeat;
+	height:34px;
+	width:37px;
+	opacity:1;
+}
+#leftbtn .ui-btn {
+	float: left;
+	width: 85px;
+}
+#rightbtn .ui-btn {
+	float: left;
+	width: 85px;
+}
+#rightlogo {
+	background-image: url("btmlogo.png");
+	background-position: 95% center;
+	background-repeat: no-repeat;
+	height: 182px;
+}
+#main-content h3 {
+	font-size: 2em;
+	font-weight: bold;
+}
+#main-content p {
+	font-size: 115%;
+	word-wrap:break-word;
+	 width: 100%;
+}
+#main-content h3
+{
+	 width: 100%;
+	word-wrap:break-word;
+}
+/* AssessRisk */
+
+
+#factors {
+	background-color: transparent !important;
+	background-image: url("riskfactors.png");
+	background-repeat: no-repeat;
+	height: 49px;
+	opacity: 1;
+	width: 319px;
+}
+#asses {
+	background-color: transparent !important;
+	background-image: url("assesselfrisk.png");
+	background-repeat: no-repeat;
+	height: 49px;
+	opacity: 1;
+	width: 319px;
+}
+#recommendation {
+	background-color: transparent !important;
+	background-image: url("recommendation.png");
+	background-repeat: no-repeat;
+	height: 49px;
+	opacity: 1;
+	width: 319px;
+}
+
+#assesrisk .ui-btn {
+    height: 50px;
+}
+#assesheadertext
+{
+		background-image: url("assesriskheader.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 30px;
+	left: 50%;
+	margin-left: -219px;
+	margin-top: 50px;
+	position: absolute;
+	top: 0;
+	width: 430px;
+}
+
+/* Recommendatios */
+#lowrisk {
+	background-color: transparent !important;
+	background-image: url("lowrisk.png");
+	background-repeat: no-repeat;
+	height: 43px;
+	opacity: 1;
+	width: 273px;
+}
+#modrisk {
+background-color: transparent !important;
+	background-image: url("modrisk.png");
+	background-repeat: no-repeat;
+	height: 43px;
+	opacity: 1;
+	width: 273px;
+}
+.highlight
+{
+   background-color: #ECECED;
+    padding: 2%;
+    width:50%;
+}
+#highrisk {
+	background-color: transparent !important;
+	background-image: url("highrisk.png");
+	background-repeat: no-repeat;
+	height: 43px;
+	opacity: 1;
+	width: 273px;
+}
+
+/* riskcalc calc */
+#riskcalc .ui-btn-up-c {
+	color: #FFF !important;
+}
+#riskcalc .ui-btn-up-d a.ui-link-inherit,#riskcalc .ui-btn-up-c a.ui-link-inherit,#riskcalc .ui-btn-up-b a.ui-link-inherit,#riskcalc .ui-btn-up-a a.ui-link-inherit,#riskcalc .ui-btn-hover-d:visited,#riskcalc .ui-btn-hover-d:hover,#riskcalc .ui-btn-hover-d a.ui-link-inherit,#riskcalc .ui-btn-hover-c:visited,#riskcalc .ui-btn-hover-c:hover,#riskcalc .ui-btn-hover-c a.ui-link-inherit,#riskcalc .ui-btn-hover-a
+{
+	color:#FFF !important;
+}
+
+#riskcalc .ui-select .ui-icon, #riskcalc .ui-select .ui-widget-content .ui-icon {
+	background-color: transparent;
+	background-image: url("arrowdown.png") !important;
+	background-position: 0 2px !important;
+	top: 56% !important
+}
+#risk label.error {
+	color: yellow;
+}
+#risk .calbtn .ui-btn-hover-c, #risk .calbtn .ui-btn-up-c {
+	background-image:-webkit-gradient(linear, left top, left bottom, from(#d2118a), to(#af0068)) !important;
+	background-image:-webkit-linear-gradient(#d2118a, #af0068) !important;
+	background-image:-moz-linear-gradient(#d2118a, #af0068) !important;
+	background-image:-ms-linear-gradient(#d2118a, #af0068) !important;
+	background-image:-o-linear-gradient(#d2118a, #af0068) !important;
+	background-image:linear-gradient(#d2118a, #af0068) !important;
+}
+#risk .ui-select .ui-btn-hover-c, #risk .ui-select .ui-btn-up-c {
+	background-image:-webkit-gradient(linear, left top, left bottom, from(#f393bd), to(#f393bd)) !important;
+	background-image:-webkit-linear-gradient(#f393bd, #f393bd) !important;
+	background-image:-moz-linear-gradient(#f393bd, #f393bd) !important;
+	background-image:-ms-linear-gradient(#f393bd, #f393bd) !important;
+	background-image:-o-linear-gradient(#f393bd, #f393bd) !important;
+	background-image:linear-gradient(#f393bd, #f393bd) !important;
+}
+#risk .ui-btn {
+    height: 30px;
+}
+.ui-icon-shadow {
+    box-shadow: none !important;
+}
+/*#calculate
+{
+	background-color: transparent !important;
+	background-image: url("nobgbtn.png");
+	background-repeat: no-repeat;
+	height: 42px;
+	opacity: 1;
+	width: 104px;
+}*/
+
+/* Self Check */
+
+#selfcheck1 #headertext {
+    background-image: url("selfheadertext.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 30px;
+    left: 50%;
+    margin-left:-70px;
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    width: 169px;
+}
+
+
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

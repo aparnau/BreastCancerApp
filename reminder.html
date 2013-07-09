@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="jquery-1.9.1.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="jquery.mobile-1.1.0.min.js"></script>
+  <script>
+  $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+  </script>
+  </head>
+  <body>
+  <article id="selfcheck1" data-role="page">
+    <div data-role="content">
+      <div id="header">
+        <div id="titleheader"> 
+          <!-- <div id="headertext"> </div>-->
+          <table id="wrapper">
+            <tr>
+              <td> <!--<img src="remindertext.png" />--> Reminder</td>
+            </tr>
+          </table>
+        </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+          <button id="donebtn"> </button>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="main"> <!-- start main -->
+          <div id="message"> <!-- start message --> 
+            <img src="sorry.png" alt="Sorry!" id="sorry" width="80%" />
+            <p>Our App is currently under construction.</p>
+            <!-- you can enter your own customised message here -->
+            <p>We'll be done soon!</p>
+          </div>
+          <!-- end message -->
+          <div id="tweet_wrap">
+            <div id="tweet"> <!-- start tweet -->
+              <p> <img src="loading.gif" alt="loading..." class="loading centerimg"/> </p>
+            </div>
+            <!-- end tweet --> 
+          </div>
+          
+          <!-- end tweet_wrap -->
+          <div id="progress" class="progress70"> <!--<img src="70-trans.png"  class="centerimg"/>--> 
+            <!-- change this to 'progressXX' to change the progress bar (where XX is either 10, 20, 30... 100) --> 
+          </div>
+          <p id="completion">It's about 70% complete!</p>
+          <!-- change this to state the % completed --> 
+        </div>
+        <!-- end main --> 
+        
+      </div>
+    </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="jquery-ui.css" />
+<link rel="stylesheet" href="jquery.mobile.simpledialog.min.css" />
+<link rel="stylesheet" href="style.css" />
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="jquery.mobile-1.1.0.min.js"></script>
+</head>
+<script>
+$(function(){
+$('#facts').live("click",function()
+{
+	  window.location = 'knowabccont.html#fact'
+});
+});
+$(function(){
+$('#whatis').live("click",function()
+{
+	  window.location = 'knowabccont.html#what'
+});
+});
+$(function(){
+$('#statistics').live("click",function()
+{
+	  window.location = 'knowabccont.html#statistic'
+});
+});
+$(function(){
+$('#india').live("click",function()
+{
+	  window.location = 'knowabccont.html#indiastatistic'
+});
+});
+$(function(){
+$('#signs').live("click",function()
+{
+	  window.location = 'knowabccont.html#sign'
+});
+});
+$(function(){
+$('#treatment').live("click",function()
+{
+	  window.location = 'knowabccont.html#treatmentoptions'
+});
+});
+$(function(){
+$('#tips').live("click",function()
+{
+	  window.location = 'knowabccont.html#tipssurvivour'
+});
+});
+$(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+$(function(){
+$('#leftnav').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+$(function(){
+$('#rightnav').live("click",function()
+{
+	  window.location = 'knowabccont.html'
+});
+});
+</script>
+<body>
+<div id="knowabtbc" data-role="page">
+  <div data-role="content">
+    <div id="header">
+      <div id="titleheader"> 
+        <!--<div id="headertext"> </div>-->
+        <table id="wrapper">
+          <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"> </div>
+      <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+    </div>
+    <div class="clear"> </div>
+    <div class="leftmenu">
+      <button id="facts"> </button>
+      <button id="whatis"> </button>
+      <button id="statistics"> </button>
+      <button id="india"> </button>
+      <button id="signs"> </button>
+      <button id="treatment"> </button>
+      <button id="tips"> </button>
+    </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+      <div class="btnnav">
+        <div id="leftbtn">
+          <button id="leftnav"> </button>
+        </div>
+        <div id="rightbtn">
+          <button id="rightnav"> </button>
+        </div>
+      </div>
+      <div id="rightlogo"> </div>
+    </div>
+  </div>
+  <footer id="footer"> </footer>
+</div>
+</div>
+
+</div>
+</body>
+</html>

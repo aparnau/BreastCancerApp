@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="jquery-1.9.1.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="jquery.mobile-1.1.0.min.js"></script>
+  <script>
+  $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+  </script>
+  </head>
+  <body>
+  <article id="selfcheck1" data-role="page">
+    <div data-role="content">
+      <div id="header">
+        <div id="titleheader">
+         <!-- <div id="headertext"> </div>-->
+         <table id="wrapper">
+          <tr>
+            <td><!-- <img src="selfheadertext.png" />--> Self-Check</td>
+          </tr>
+        </table>
+        </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+          <button id="donebtn"> </button>
+        </div>
+      </div>
+      <div id="main-content">
+        <p class="titletext">Breast self-examination</p>
+        <div class="clear"> </div>
+        <p>Starting in their 20s, women should carry
+          out regular breast self-examinations (BSE). </p>
+        <p>Consult a doctor immediately, if any 
+          changes in the breast are seen. </p>
+        <p>A regular BSE helps to know how the
+          breasts normally look and feel and to notice
+          any changes. </p>
+        <p> The American College of Obstetricians 
+          and Gynecologists (ACOG) procedure 
+          for a breast self-exam involves 2 steps: </p>
+        <div class="ui-block-a"><a href="selfcheckcont.html#stepone" data-role="button" rel="external" ><img src="self1.png" width="163" height="44"/> </a></div>
+        <div class="clear"> </div>
+        <div class="ui-block-b"><a href="selfcheckcont.html#steptwo" data-role="button" rel="external" ><img src="self2.png" width="163" height="43"/> </a></div>
+      </div>
+      <div class="clear"> </div>
+      <div class="bottomnav">
+        <div class="btnnav">
+          <div id="leftbtn">
+            <div class="ui-block-a"><a href="index.html" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="selfcheckcont.html#stepone" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+          <div id="rightlogo"> </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>What is breast cancer?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="jquery-ui.css" />
+
+<link rel='stylesheet' type='text/css' href="style.css"/>
+<link rel='stylesheet' media='screen and (max-device-width: 375px)' href="medium.css" />
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="jquery.mobile-1.1.0.min.js"></script>
+</head>
+<script>
+$(document).bind('pagebeforeshow', function () {
+//	alert('hi');
+});
+$(function(){
+$('#knowabc').live("click",function()
+{
+	  window.location = 'knowabc.html'
+});
+});
+$(function(){
+$('#accessrisk').live("click",function()
+{
+	  window.location = 'assessrisk.html'
+});
+});
+$(function(){
+$('#selfcheck').live("click",function()
+{
+	  window.location = 'selfcheck.html'
+});
+});
+$(function(){
+$('#findcenter').live("click",function()
+{
+	  window.location = 'alert_center.html'
+});
+});
+$(function(){
+$('#reminder').live("click",function()
+{
+	  window.location = 'reminder.html'
+});
+});
+$(document).ready(function() {	
+});
+</script>
+<body>
+<div id="index" data-role="page">
+  <div data-role="content">
+    <div id="header">
+      <div id="topmenu" class="centeredmenu">
+             
+            <ul>
+              <li class="ui-block-a"><a href="knowabc.html" data-role="button" rel="external" id="mainbtn">Know ABC </a></li>
+              <li class="ui-block-a"><a href="assessrisk.html" data-role="button" rel="external" id="mainbtn">Assess Risk</a></li>
+              <li class="ui-block-a"><a href="selfcheck.html" data-role="button" rel="external" id="mainbtn">Self-Check</a></li>
+            </ul>
+     
+          <!--  <div class="ui-block-a"><a href="knowabc.html" data-role="button" rel="external" id="mainbtn">Know ABC </a></div>          
+    <div class="ui-block-a"><a href="assessrisk.html" data-role="button" rel="external" id="mainbtn">Assess Risk</a></div>          
+      <div class="ui-block-a"><a href="selfcheck.html" data-role="button" rel="external" id="mainbtn">Self-Check</a></div>          
+           <button id="knowabc"> </button>
+         <button id="accessrisk"> </button>
+          <button id="selfcheck"> </button>--> 
+          
+      
+      </div>
+      <div class="clear"> </div>
+ <div id="topmenu2" class="centeredmenu">
+        <ul>
+	          <li class="ui-block-a"><a href="updates.html" data-role="button" rel="external" id="mainbtn">Updates</a></li>
+              <li class="ui-block-a"><a href="alert_center.html" data-role="button" rel="external" id="mainbtn">Find Centers</a></li>
+              <li class="ui-block-a"><a href="reminder.html" data-role="button" rel="external" id="mainbtn">Reminder</a></li>  
+              </ul>
+ <!--      <div class="ui-block-a"><a href="findcenter.html" data-role="button" rel="external" id="mainbtn">Find Centers</a></div>
+          <div class="ui-block-a"><a href="reminder.html" data-role="button" rel="external" id="mainbtn">Reminder</a></div>
+        <button id="findcenter"> </button>
+          <button id="reminder"> </button>--> 
+        </div>
+      </div>
+   
+    <div class="clear"> </div>
+    <img src="homelogo.png" width="50%" class="centered" style="padding-bottom: 2%;padding-top: 2%;"/>
+     </div>
+    <footer id="footer"> </footer>
+   
+  </div>
+</div>
+</body>
+</html>

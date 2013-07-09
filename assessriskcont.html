@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="jquery-1.9.1.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="jquery.mobile-1.1.0.min.js"></script>
+  <script src="bcra1.js" type="text/javascript"> </script>
+  <script>
+  $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+$(function(){
+$('#lowrisk').live("click",function()
+{
+	  window.location = 'assessriskcont.html#low'
+});
+});
+$(function(){
+$('#modrisk').live("click",function()
+{
+	  window.location = 'assessriskcont.html#mod'
+});
+});
+$(function(){
+$('#highrisk').live("click",function()
+{
+	  window.location = 'assessriskcont.html#high'
+});
+});
+/* Swipping through pages */	
+$(document).on('swipeleft', 'article', function(event){
+    if(event.handled !== true) // This will prevent event triggering more then once
+    { 
+	  if($.mobile.activePage.attr('id') != 'modrisk3')
+	  {
+        var nextpage = $(this).next('article[data-role="page"]');
+        // swipe using id of next page if exists
+        if (nextpage.length > 0) {
+            $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);						
+        }
+	}
+         event.handled = true;
+	
+     return false;         }
+});
+
+$(document).on('swiperight', 'article', function(event){   
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {   
+        var prevpage = $(this).prev('article[data-role="page"]');
+        if (prevpage.length > 0) {
+            $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);		
+        }
+        event.handled = true;
+      }
+    return false;            
+});
+$(function(){
+$('#calculate').live("click",function()
+{
+	calculate();
+
+});
+});
+
+  </script>
+  </head>
+  <body>
+<article id="factor" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+                  <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors</p>
+        <div class="clear"> </div>
+        <p>There are several risk factors that may 
+        increase a person's chance of developing
+        breast cancer.</p>
+        <div class="clear"> </div>
+        <p> There are different kinds of risk factors - 
+        some are lifestyle-related factors, which
+        can be modified, while other factors
+        cannot be changed.</p>
+        <div class="ui-block-a"><a href="assessriskcont.html#nonmodrisk" data-role="button" rel="external" id="riskbtn">Non-modifiable risk factors</a></div>
+        <div class="clear"> </div>
+        <div class="ui-block-a"><a href="assessriskcont.html#modrisk" data-role="button" rel="external" id="riskbtn">Modifiable risk factors </a></div>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessrisk.html" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#nonmodrisk" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of 1 -->
+<article id="nonmodrisk" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+                 <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Non-modifiable</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Gender: </p>
+        <p> Being a woman is a major risk
+        factor for breast cancer. While men can also develop breast cancer, it is 100 time
+        more common in women than in men. </p>
+        <p class="treatheader"> Age: </p>
+        <p>The risk of breast cancer increases 
+        with age, with 2 out of 3 invasive breast
+        cancers being found in women older
+        than 55 years. </p>
+        <p class="treatheader">Genetics:</p>
+        <p> Gene defects or mutations are
+        responsible for about 5-10% of breast
+        cancer cases. </p>
+        <p>
+      <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#factor" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#nonmodrisk2" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of 2 -->
+<article id="nonmodrisk2" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+                 <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Non-modifiable</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Family history: </p>
+        <p> Having a family history of
+        breast cancer increases the risk of
+        developing breast cancer. </p>
+        <p class="treatheader"> Breast density: </p>
+        <p> Women with dense breasts
+        have a higher risk of breast cancer than
+        women with less dense breasts. Breast
+        density is affected by factors such as age,
+        menopausal status, the use of drugs (such
+        as menopausal hormone therapy),
+        pregnancy, and genetics.</p>
+        <p>
+      <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#nonmodrisk" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#nonmodrisk3" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of non-mod 2 -->
+<article id="nonmodrisk3" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+       <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Non-modifiable</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Menstrual periods: </p>
+        <p> Being younger 
+        at the time of the first menstrual period,
+        or starting menopause at a later age
+        increases the risk of breast cancer.</p>
+        <p class="treatheader">Treatment with radiation therapy to the 
+        breast or chest: </p>
+        <p>Children or young adults
+        who have had radiation therapy of the
+        breast or chest are at significantly higher risk
+        of breast cancer compared to those who
+        have not undergone radiation therapy.</p>
+        <p> The risk varies with age and is highest if the
+        radiation exposure was at the time of
+        adolescence when the breasts were still
+        developing. </p>
+        <p>
+      <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#nonmodrisk2" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#modrisk1" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of non-mod 3 -->
+<article id="modrisk1" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+      <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Modifiable</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Having children:</p>
+        <p> Having no children, or
+        having the first child after the age of 30
+        slightly increases the risk of breast cancer. </p>
+        <p class="treatheader">Birth control: </p>
+        <p> Use of oral contraceptives has
+        been found to slightly increase the risk of
+        breast cancer. </p>        
+        <p>
+     <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#nonmodrisk" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#modrisk2" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of mod-risk 1 -->
+<article id="modrisk2" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+      <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Modifiable</p>
+        <div class="clear"> </div>       
+        <p class="treatheader">Hormone therapy after menopause:</p> 
+        <p> The use of combined hormone therapy after
+        menopause increases the risk of breast
+        cancer, and also the likelihood of advanced
+        stage cancer.</p>
+        <p>Other hormone therapies have not found to 
+        contribute to higher risk. </p>       
+       <p class="treatheader">Breastfeeding: </p>
+        <p> Breastfeeding has
+        been found to lower breast cancer risk,
+        especially if breastfeeding is
+        continued for 1.5-2 years. </p>
+       <p class="treatheader">Alcohol: </p>
+        <p> Alcohol consumption 
+        increases the risk of breast cancer. </p>
+        <p>
+   <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#modrisk1" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#modrisk3" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of mod-risk 2 -->
+<article id="modrisk3" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+       <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Risk factors: Modifiable</p>
+        <div class="clear"> </div>
+      
+        <p class="treatheader">Overweight/obesity:</p>
+        <p>  Overweight or obesity
+        after menopause has been linked to an
+        increased risk of breast cancer. </p>
+        <p class="treatheader">Physical activity: </p>
+        <p> Regular physical activity
+        reduces the risk of breast cancer. </p>
+        <p>
+   <div class="ui-block-a"><a href="alert.html" data-role="button" rel="external" id="riskbtn" > Assess your breast cancer risk</a></div>
+        </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#modrisk2" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="riskcalc.html#riskcalc1" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- riskcalc -->
+<!--end of 4(riskcalc) -->
+<article id="recommand" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+       <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Recommendations for early detection</p>
+      </div>
+    <div class="clear"> </div>
+    <div class="leftmenu">
+        <button id="lowrisk"> </button>
+        <button id="modrisk"> </button>
+        <button id="highrisk"> </button>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+    <div class="btnnav">
+        <div id="leftbtn">
+        <div class="ui-block-a"><a href="assessriskcont.html#riskcalc" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+        <div class="ui-block-b"><a href="assessriskcont.html#low" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+      </div>
+        <div id="rightlogo"> </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end og recomm -->
+<article id="low" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--<div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+           <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div class="leftmenu">
+        <div id="lowrisk"> </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Recommendations for early detection</p>
+        <div class="clear"> </div>
+        <p>It is recommended that women in their 20s 
+        and 30s should have a clinical breast exam
+        every 3 years. </p>
+        <p>For women 40 years and older, a clinical
+        breast exam and a mammogram is recommended
+        once every year. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#recommand" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#mod" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of low -->
+<article id="mod" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--<div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+               <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div class="leftmenu">
+        <div id="modrisk"> </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Recommendations for early detection</p>
+        <div class="clear"> </div>
+        <p>An annual MRI is recommended, in addition 
+        to the annual mammogram.</p>
+        <p>It may, however, not be necessary. Discuss
+        with your doctor if it is required. </p>
+        <div class="highlight">
+        <p>Moderate risk women include - </p>
+        <p>Women with a lifetime risk of breast 
+            cancer of 15% to 20%, according to risk
+            assessment tools </p>
+        <p>Women who have a personal history of 
+            breast cancer </p>
+        <p>Women who have extremely dense breasts
+            or unevenly dense breasts 
+            when viewed by mammograms </p>
+      </div>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#low" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="assessriskcont.html#high" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of mod -->
+<article id="high" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--        <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+                <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div class="leftmenu">
+        <div id="highrisk"> </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Recommendations for early detection</p>
+        <div class="clear"> </div>
+        <p>An MRI and a mammogram every year is
+        recommended.</p>
+        <div class="highlight">
+        <p>High risk women include - </p>
+        <p>Women with a known BRCA1 or BRCA2
+            gene mutation</p>
+        <p>Women who have a first-degree relative
+            (parent, brother, sister, or child) with a
+            BRCA1 or BRCA2 gene mutation </p>
+        <p>Women having a lifetime risk of breast
+            cancer of 20% to 25% or greater,
+            according to risk assessment tools </p>
+        <p>Women who have had radiation therapy to the chest when they were between the ages of 10 and 30 years </p>
+        <p>Women having syndromes such as Li-Fraumeni, Cowden, or Bannayan-Riley-Ruvalcaba, or having one of these syndromes in first-degree relatives. </p>
+      </div>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="assessriskcont.html#low" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <!--<div class="ui-block-b"><a href="assessriskcont.html#high" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>--> 
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of high-->
+</body>
+</html>

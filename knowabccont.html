@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+  <link rel="stylesheet" href="jquery-ui.css" />
+  <link rel="stylesheet" href="style.css" />
+<!--  <link rel="stylesheet" type="text/css" href="jquery.fancybox.css">-->
+	<link rel="stylesheet" type="text/css" href="jquery.fancybox.css" media="screen" />
+  <!--  <script src="jquery-1.9.1.js"></script>-->
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery.mobile-1.3.1.min.js"></script>
+<!--  <script type='text/javascript' src="jquery.fancybox.pack.js"></script>-->
+<script type="text/javascript" src="jquery.fancybox.js"></script>
+  <script>
+  var $ = jQuery.noConflict();
+ $(window).load(function(){ 	
+$(document).ready(function() {
+    // initialize the lightbox 
+    $(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 300,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 300,
+
+				closeClick : true,
+				
+				arrows :false,
+				
+				helpers : {
+					overlay : null
+				}
+			});
+});
+});//]]>  
+  $(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+
+/* Swipping through pages */	
+$(document).on('swipeleft', 'article', function(event){
+    if(event.handled !== true) // This will prevent event triggering more then once
+    { 
+	
+        var nextpage = $(this).next('article[data-role="page"]');
+        // swipe using id of next page if exists
+        if (nextpage.length > 0) {
+            $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);						
+        }
+	}
+         event.handled = true;
+	
+     return false;         
+});
+
+$(document).on('swiperight', 'article', function(event){   
+    if(event.handled !== true) // This will prevent event triggering more then once
+    {   
+        var prevpage = $(this).prev('article[data-role="page"]');
+        if (prevpage.length > 0) {
+            $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);		
+        }
+        event.handled = true;
+      }
+    return false;            
+});
+
+
+  </script>
+  </head>
+  <body>
+<article id="fact" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Interesting Breast Facts </p>
+        <div class="clear"> </div>
+        <p> The left breast is usually slightly bigger than the right one. </p>
+        <div class="clear"> </div>
+        <p> The average breast weighs about half a kg. </p>
+        <div class="clear"> </div>
+        <p>Sleeping position is important in 
+        maintaining the firmness and shape
+        of your breasts.</p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabc.html" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#what" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<article id="what" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext"> What is Breast cancer? </p>
+        <div class="clear"> </div>
+        <p> Breast cancer is a form of cancer that
+        affects the cells of the breast.</p>
+        <div class="clear"> </div>
+        <p>In breast cancer, cells in the breast
+        become abnormal and multiply
+        without control, leading to 
+        formation of a tumor.</p>
+        <br/>
+        <a class="fancybox-effects-d" rel="fancybox-button" href="1-07.png" title=" " data-ajax="false" > <img src="whatisimg.png" alt="" class="centerimg"/> </a> 
+        <!--  <div class="single"> <a rel="lightbox" href="1-07.png">
+          <div> <img src="whatisimg.png"  class="centerimg"></div>
+          </a> </div>
+          <a href="1-07.png" rel="prettyPhoto"><img src="whatisimg.png" width="195" height="193" class="centerimg"/></a> 
+       <p> <img src="whatisimg.png" width="195" height="193" class="centerimg"/> </p>--> 
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#fact" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#statistic" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<article id="statistic" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Worldwide Breast cancer Statistics</p>
+        <div class="clear"> </div>
+        <p> Breast cancer is the most common form of 
+        cancer seen in women worldwide. It
+        comprises 16% of all cancers in females. </p>
+        <div class="clear"> </div>
+        <p>According to the WHO Global Burden of 
+        Disease, 2004, 69% of all breast cancer
+        deaths occur in developing countries.</p>
+        <p>By 2020, breast cancer cases are expected
+        to increase by 26%. Most of these cases will
+        be seen in developing countries.</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-08.png" title=" " data-ajax="false" > <img src="statisticsimg.png" width="294" height="220" class="centerimg"/> </a> </p>
+        
+        <!-- <p> <img src="statisticsimg.png" width="294" height="187" class="centerimg"/> </p>--> 
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#what" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#indiastatistic" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<article id="indiastatistic" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Breast cancer in India</p>
+        <div class="clear"> </div>
+        <p>The incidence of breast cancer is
+        increasing in India as women adopt
+        western lifestyles of marrying later and
+        having children later in life. </p>
+        <div class="clear"> </div>
+        <p>It is estimated that over 100,000 new
+        breast cancer patients are diagnosed
+        annually in India.</p>
+        <br/>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-09.png" title=" " data-ajax="false" > <img src="statindia.png" alt="" class="centerimg"/> </a> </p>
+        <br/>
+        <p> The incidence of this disease has been 
+        consistently increasing at a rate of 0.5-2% every year. </p>
+        <p>This rise is being seen across all
+        regions of India and in all age groups but 
+        especially in the younger age groups (<45 years). </p>
+        <p> In India, more than 80% of breast cancer
+        patients are younger than 60 years of age,
+        with a significant proportion of Indian breast cancer
+        patients being younger than 35 years of age. 
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#statistic" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#sign" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<article id="sign" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Signs and Symptoms</p>
+        <div class="clear"> </div>
+        <p>The presence of a lump or mass in or
+        near the breast</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-10.png" title=" " data-ajax="false" > <img src="singsimg.png" class="centerimg"/> </a> </p>
+        <div class="clear"> </div>
+        <p>Swelling of the breast, or a lump or
+        swelling under the arm</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-12.png" title=" " data-ajax="false" > <img src="singsimg1.png" class="centerimg"/> </a> </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#indiastatistic" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#sign2" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of sign1 -->
+<article id="sign2" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Signs and Symptoms</p>
+        <div class="clear"> </div>
+        <p>Irritation or dimpling of skin in the
+        breast region.</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-11.png" title=" " data-ajax="false" > <img src="singsimg2.png" class="centerimg"/> </a> </p>
+        <div class="clear"> </div>
+        <p>Redness, scaliness, or thickening of 
+        the nipple or breast skin.</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-15.png" title=" " data-ajax="false" > <img src="singsimg3.png" class="centerimg"/> </a> </p>
+        <div class="clear"> </div>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#sign" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#sign3" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of sign2-->
+<article id="sign3" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!-- <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Signs and Symptoms</p>
+        <p>Breast or nipple pain</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-13.png" title=" " data-ajax="false" > <img src="singsimg4.png" class="centerimg"/> </a> </p>
+        <div class="clear"> </div>
+        <p>Nipple retraction (turning inward)</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-14.png" title=" " data-ajax="false" > <img src="singsimg5.png" class="centerimg"/> </a> </p>
+        <div class="clear"> </div>
+        <p>Nipple discharge</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-16.png" title=" " data-ajax="false" > <img src="singsimg6.png" class="centerimg"/> </a> </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#sign2" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#treatmentoptions" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of sign 3 -->
+<article id="treatmentoptions" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Treatment options</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Surgery:</p>
+        <p>In most patients, surgery is the
+        treatment option followed in order to 
+        remove the cancer from the breast. </p>
+        <div class="clear"> </div>
+        <p> Surgery may be of two types:</p>
+        <ul>
+        <li>
+            <p>it may involve removal of 
+            the whole breast that has 
+            cancer </p>
+          </li>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-06.png" title=" " data-ajax="false" > <img src="type1.png" class="centerimg"/> </a> </p>
+        <li>
+            <p>it may involve removal of the 
+            cancer, but not the  breast
+            itself (breast-conserving surgery). </p>
+          </li>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="1-05.png" title=" " data-ajax="false" > <img src="type2.png" class="centerimg"/> </a> </p>
+      </ul>
+        <div class="clear"> </div>
+        <div class="bottomnav">
+        <div class="btnnav">
+            <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#sign" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#treatmentoptions2" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+            <div id="rightlogo"> </div>
+          </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of treatment 1-->
+
+<article id="treatmentoptions2" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Treatment options</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Radiation therapy:</p>
+        <p>High-energy x-rays or
+        other types of radiation are used to kill 
+        cancer cells or prevent them from
+        growing further.</p>
+        <p> <a  class="fancybox-effects-d" rel="fancybox-button" href="radiation.png" title=" " data-ajax="false" > <img src="radiationtherapy.png" class="centerimg" width="80%"/> </a> </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#treatmentoptions" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#treatmentoptions3" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of treatment 2-->
+<article id="treatmentoptions3" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Treatment options</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Chemotherapy:</p>
+        <p>Chemotherapy involves
+        the use of drugs which help to stop the
+        growth of cancer cells, either by killing
+        the cells or by stopping them from 
+        dividing. </p>
+        <p> The drug therapy may be systemic - 
+        taken orally or by injection </p>
+        <span style="color:#eb2f92;font-weight:bold;"> or </span>
+        <p> it may be regional - placed directly into 
+        the cerebrospinal fluid, an organ,
+        or a body cavity such as the abdomen in order
+        to affect cancer cells in those areas. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#treatmentoptions2" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#treatmentoptions4" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of treatment 3-->
+<article id="treatmentoptions4" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Treatment options</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Hormone Therapy:</p>
+        <p>Hormone therapy 
+        involves removal of hormones or 
+        blocking of their activity so that cancer
+        cells are unable to grow. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#treatmentoptions3" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#treatmentoptions5" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of treatment 4 -->
+<article id="treatmentoptions5" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--   <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Treatment options</p>
+        <div class="clear"> </div>
+        <p class="treatheader">Targeted therapy:</p>
+        <p>In targeted therapy,
+        drugs or other substances are used to
+        identify and attach to specific cancer
+        cells, without harming the normal cells. </p>
+        <p> Once attached to cancer cells, they may
+        kill them, block their growth or prevent
+        them from spreading. </p>
+        <p>Monoclonal antibodies and tyrosine 
+        kinase inhibitors are two types of
+        targeted therapies used in the treatment 
+        of breast cancer. 
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#treatmentoptions4" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#tipssurvivour" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!--end of treatment 5 -->
+<article id="tipssurvivour" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Tips for cancer survivors</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Regular follow-up care -</p>
+        <div class="clear"> </div>
+        <p>every 3 to 4 months with your doctor
+        during the first 2 to 3 years after
+        treatment</p>
+        <p> once or twice a year after that. </p>
+      </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#treatmentoptions" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#tipssurvivour2" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of tips 1 -->
+<article id="tipssurvivour2" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Tips for cancer survivors</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Live a healthy life -</p>
+        <p>Quit smoking </p>
+        <p> maintain a healthy weight </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#tipssurvivour" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#tipssurvivour3" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of tips 2 -->
+<article id="tipssurvivour3" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Tips for cancer survivors</p>
+        <div class="clear"> </div>
+        <p class="treatheader"> Make healthy food choices after your 
+        treatment - </p>
+        <ul>
+        <li> Control your calories to achieve a
+            healthy weight </li>
+        <li>Eat more fruits and vegetables</li>
+        <li> Eat more plant-based foods </li>
+        <li> Eat more fibre </li>
+        <li> Eat less fat </li>
+        <li> Eat less sugar </li>
+      </ul>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#tipssurvivour2" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <div class="ui-block-b"><a href="knowabccont.html#tipssurvivour4" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of tips 3 -->
+<article id="tipssurvivour4" data-role="page">
+    <div data-role="content">
+    <div id="header">
+        <div id="titleheader"> 
+        <!--  <div id="headertext"> </div>-->
+        <table id="wrapper">
+            <tr>
+            <td><!-- <img src="knwheader.png" />--> Know About Breast Cancer</td>
+          </tr>
+          </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div id="main-content">
+        <p class="titletext">Tips for cancer survivors</p>
+        <div class="clear"> </div>
+        <p> Develop a wellness plan to take care of
+        your physical, emotional, social, and spiritual 
+        needs. </p>
+        <p>Physical activity can be empowering and
+        can enhance your overall well-being. </p>
+        <p> Be part of a support group to share your 
+        feelings and experiences with others. </p>
+      </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+        <div class="btnnav">
+        <div id="leftbtn">
+            <div class="ui-block-a"><a href="knowabccont.html#tipssurvivour3" data-role="button" rel="external" id="leftnav"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+            <!--   <div class="ui-block-b"><a href="#" data-role="button" rel="external" id="rightnav"><img src="rightarrow.png" width="37" height="34"/> </a></div>--> 
+          </div>
+        <div id="rightlogo"> </div>
+      </div>
+      </div>
+  </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </article>
+<!-- end of tips 4 -->
+
+</body>
+</html>

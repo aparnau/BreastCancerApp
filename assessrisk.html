@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="jquery-ui.css" />
+	<link rel="stylesheet" href="jquery.mobile.simpledialog.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="jquery-1.9.1.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script src="jquery-1.7.1.min.js"></script>
+	<script src="jquery.mobile-1.1.0.min.js"></script>
+	</head>
+<script>
+$(function(){
+$('#factors').live("click",function()
+{
+	  window.location = 'assessriskcont.html#factor'
+});
+});
+$(function(){
+$('#asses').live("click",function()
+{
+	  window.location = 'alert.html'
+});
+});
+$(function(){
+$('#recommendation').live("click",function()
+{
+	  window.location = 'assessriskcont.html#recommand'
+});
+});
+
+$(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+$(function(){
+$('#leftnav').live("click",function()
+{
+	  window.location = 'index.html'
+});
+});
+$(function(){
+$('#rightnav').live("click",function()
+{
+	  window.location = 'assessriskcont.html'
+});
+});
+</script>
+<body>
+<div id="assesrisk" data-role="page">
+  <div data-role="content">
+   <div id="header">
+        <div id="titleheader">
+       <!-- <div id="assesheadertext"> </div>-->
+        <table id="wrapper">
+          <tr>
+            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+          </tr>
+        </table>
+      </div>
+        <div class="clear"> </div>
+        <div id="btmheader">
+        <button id="donebtn"> </button>
+      </div>
+      </div>
+    <div class="clear"> </div>
+   
+      <div class="leftmenu">
+        <button id="factors"> </button>
+        <button id="asses"> </button>
+        <button id="recommendation"> </button>
+       
+      </div>
+     
+      <div class="clear"> </div>
+      <div class="bottomnav">
+        <div class="btnnav">
+          <div id="leftbtn">
+            <button id="leftnav"> </button>
+          </div>
+          <div id="rightbtn">
+            <button id="rightnav"> </button>
+          </div>
+        </div>
+            <div id="rightlogo"> </div>
+      </div>
+    </div>
+    <footer id="footer"> </footer>
+  </div>
+  
+</div>
+
+</div>
+
+</body>
+</html>
