@@ -13,7 +13,7 @@
 $(function () {
     $("#dialog").dialog({
         close: function () {
-            window.location = "index.html"
+            window.location = "index_home.html"
         },
         buttons: {
             "No Thanks": function () {
@@ -25,9 +25,9 @@ window.location='index_home.html';
 				var phno=document.getElementById('phnumber').value;
 			//	alert(email+phno);
               $.getJSON("http://www.mobiletest.mednl.com/sendnewsletter.php?jsoncallback=?&email="+email+"&phno="+phno, function(data){ 
-alert("Successfull subscription request");
 
-window.location='index.html';
+alert("You Have subscribed successfully");
+window.location='index_home.html';
 });
             }
         }            
