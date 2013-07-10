@@ -8,8 +8,21 @@
 <script src="jquery-1.9.1.js"></script>
 <script src="jquery-ui.js"></script>
 <script src="utility.js" type="text/javascript" ></script>
+<script src="jquery.validate.js"></script>
 <script type='text/javascript'>
-
+$(document).ready(function() {	
+var flag=1;
+			/*	$('#subscribeform').validate({
+				rules: {
+					emailid: {
+						required: true					
+					},
+					phnumber: {
+						required: true
+					}
+				}
+			});*/
+});
 $(function () {
     $("#dialog").dialog({
         close: function () {
@@ -18,18 +31,53 @@ $(function () {
         buttons: {
             "No Thanks": function () {
 //                $(this).dialog("close");
-window.location='index_home.html';
+				window.location='index_home.html';
             },
 			"OK": function () {
+				
+function validateForm()
+{
+var e=document.forms["subscribeform"]["emailid"].value;
+var n=document.forms["subscribeform"]["phnumber"].value;
+if (e==null || e=="" && n==null || n=="")
+  {
+  alert("All fields must be filled out");
+  return false;
+  }
+  
+  var verify=document.forms["subscribeform"]["emailid"].value;
+var atpos=verify.indexOf("@");
+var dotpos=verify.lastIndexOf(".");
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=verify.length)
+  {
+  alert("Not a valid e-mail address");
+  return false;
+  }
+  
+ if(isNaN(subscribeform.phnumber.value)) 
+   { 
+     alert("Invalid data format.\n\nOnly numbers are allowed."); 
+     subscribeform.phnumber.focus(); 
+     return (false); 
+   }  
+  
+  return true
+}
+var result=validateForm();
+//alert(result);
+if(result==true)
+{
 				var email=document.getElementById('emailid').value;
 				var phno=document.getElementById('phnumber').value;
-			//	alert(email+phno);
-              $.getJSON("http://www.mobiletest.mednl.com/sendnewsletter.php?jsoncallback=?&email="+email+"&phno="+phno, function(data){ 
-
-alert("You Have subscribed successfully");
-window.location='index_home.html';
-});
-            }
+			//alert(email+phno);
+			  $.post("http://www.mobiletest.mednl.com/sendnewsletter.php",{data:{email:email,phno:phno}}).done(function(data){
+				
+				   });
+			  alert("You Have subscribed successfully");
+			window.location='index_home.html';
+	
+}
+			}
         }            
     });
 });
@@ -39,25 +87,25 @@ $.mobile.defaultPageTransition = 'none';
 </script>
 
 <body>
- <div id="dialog">
- <form action="" method="post" enctype="text/plain">
- <label>
- please enter your email id if you would like to receive updates from Breast Health website
- </label>
- <div class="clear"> </div>
- <label>E-mail: </label>
-<input type="text" name="mail" id="emailid" required><br>
- <div class="clear"> </div>
-<label> Phone Number:  </label>
-<input type="tel" name="phnumber" id="phnumber" required><br>
-<!--<input type="submit" value="Ok">-->
-<!--<div class="ui-dialog-buttonset">
+<div id="dialog">
+  <form method="post" enctype="text/plain" id="subscribeform" onsubmit="return validateForm()" >
+    <label> please enter your email id if you would like to receive updates from Breast Health website </label>
+    <div class="clear"> </div>
+    <label>E-mail: </label>
+    <input type="text" name="emailid" id="emailid" required>
+    <br>
+    <div class="clear"> </div>
+    <label> Phone Number: </label>
+    <input type="number" name="phnumber" id="phnumber" required>
+    <br>
+    <!--<input type="submit" value="Ok">--> 
+    <!--<div class="ui-dialog-buttonset">
 <button id="ok"  class="ui-button ui-state-default ui-corner-all ui-button-text-only okbtn" role="button" aria-disabled="false">
 <span class="ui-button-text">OK</span>
 </button>
 </div>-->
-<div class="clear"> </div>
-</form>
+    <div class="clear"> </div>
+  </form>
 </div>
 </body>
 </html>
