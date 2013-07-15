@@ -14,6 +14,30 @@
 <script src="jquery.mobile-1.1.0.min.js"></script>
 </head>
 <script>
+function myFunction()
+{
+
+  var localdate = document.getElementById('localvaldate');
+  var localmonth = document.getElementById('localvalmonth');
+  
+    localdate.innerHTML = localStorage.getItem('remddate'); 
+	localmonth.innerHTML = localStorage.getItem('remmonth'); 
+	
+	var locdate=localStorage.getItem('remddate'); 
+	var locmonth=localStorage.getItem('remmonth'); 
+	
+  // to reset
+  // localStorage.clear();
+var today = new Date();
+//alert(today);
+var tdate=today.getDate();
+var tmonth=today.getMonth();
+tmonth=tmonth+1;
+if(locdate==tdate && locmonth==tmonth)
+{
+	alert("reminder on");
+}
+}
 $(document).bind('pagebeforeshow', function () {
 //	alert('hi');
 });
@@ -50,7 +74,7 @@ $('#reminder').live("click",function()
 $(document).ready(function() {	
 });
 </script>
-<body>
+<body onload="myFunction()">
 <div id="index" data-role="page">
   <div data-role="content">
     <div id="header">
@@ -88,6 +112,8 @@ $(document).ready(function() {
     <div class="clear"> </div>
     <img src="homelogo.png" width="100%" class="centered" style="padding-bottom: 2%;padding-top: 2%;"/>
      </div>
+     <p id="localvaldate"> </p>
+     <p id="localvalmonth"> </p>   
     <footer id="footer"> </footer>
    
   </div>
