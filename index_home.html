@@ -20,8 +20,8 @@ function myFunction()
   var localdate = document.getElementById('localvaldate');
   var localmonth = document.getElementById('localvalmonth');
   
-    localdate.innerHTML = localStorage.getItem('remddate'); 
-	localmonth.innerHTML = localStorage.getItem('remmonth'); 
+  //  localdate.innerHTML = localStorage.getItem('remddate'); 
+//	localmonth.innerHTML = localStorage.getItem('remmonth'); 
 	
 	var locdate=localStorage.getItem('remddate'); 
 	var locmonth=localStorage.getItem('remmonth'); 
@@ -35,7 +35,7 @@ var tmonth=today.getMonth();
 tmonth=tmonth+1;
 if(locdate==tdate && locmonth==tmonth)
 {
-	alert("reminder on");
+	alert("Assesment Reminder");
 }
 }
 $(document).bind('pagebeforeshow', function () {

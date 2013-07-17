@@ -971,3 +971,65 @@ background:#eb008b !important; /* Old browsers */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
 color: #FFFFFF !important;
 }
+/* reminder page */
+#reminder #btmheader {
+float:right;
+}
+
+#ui-datepicker-div .ui-state-default,
+#ui-datepicker-div .ui-widget-content .ui-state-default,
+#ui-datepicker-div .ui-widget-header .ui-state-default {
+background: none !important;
+border:1px solid #999999 !important;
+}
+
+#setrem
+{
+	background-color: transparent !important;
+	background-image:url(savebtn.png);
+	background-repeat:no-repeat;
+	height:42px;
+	width:104px;
+	opacity: 1;
+    border-radius: 0 0 0 0 !important;
+    border: medium none !important;	
+	color: #FFF !important;
+	font-weight: normal;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+#ui-datepicker-div .ui-state-hover,#ui-datepicker-div .ui-widget-content .ui-state-hover,#ui-datepicker-div .ui-widget-header .ui-state-hover,
+#ui-datepicker-div .ui-state-focus, #ui-datepicker-div .ui-widget-content .ui-state-focus,#ui-datepicker-div .ui-widget-header .ui-state-focus,
+#ui-datepicker-div .ui-datepicker-next {
+border: 1px solid #999999;
+background-color: #FFF !important;
+font-weight: normal;
+color: #212121;
+}
+#ui-datepicker-div .ui-datepicker-prev.ui-state-disabled
+{
+	background-color: #FFF !important;
+	background-image:none !important;
+}
+
+#ui-datepicker-div .ui-state-hover .ui-icon,#ui-datepicker-div .ui-state-focus .ui-icon,
+#ui-datepicker-div .ui-icon {
+background-image: url(arrow.png);
+background-position:left left;
+background-color: #FFF !important;
+}
+#ui-datepicker-div .ui-datepicker-prev.ui-state-hover .ui-icon,#ui-datepicker-div .ui-datepicker-prev.ui-state-focus .ui-icon,
+#ui-datepicker-div .ui-datepicker-prev.ui-icon ,#ui-datepicker-div .ui-datepicker-prev .ui-icon.ui-icon-circle-triangle-w 
+{
+	background-image: url(arrowleft.png) !important;
+}
+#ui-datepicker-div .ui-icon-circle-triangle-e,
+#ui-datepicker-div .ui-icon-circle-triangle-w {
+background-position:2px 2px !important;
+}
+
+#ui-datepicker-div .ui-icon, #ui-datepicker-div .ui-icon-searchfield:after 
+#ui-datepicker-div .ui-state-hover, #ui-datepicker-div .ui-widget-content .ui-state-hover,#ui-datepicker-div .ui-widget-header .ui-state-hover, #ui-datepicker-div .ui-state-focus,#ui-datepicker-div .ui-widget-content .ui-state-focus,#ui-datepicker-div .ui-widget-header .ui-state-focus,
+.ui-datepicker .ui-datepicker-prev{
+	background-color:#FFF !important;
+}

@@ -6,28 +6,59 @@
   <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
   <link rel="stylesheet" href="jquery-ui.css" />
   <link rel="stylesheet" href="style.css" />
-  <script src="jquery-1.9.1.js"></script>
-  <script src="jquery-ui.js"></script>
-  <script src="jquery-1.7.1.min.js"></script>
-  <script src="jquery.mobile-1.1.0.min.js"></script>
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery.mobile-1.1.0.min.js"></script>
   <script>
-  $(function(){
-$('#donebtn').live("click",function()
+$(function(){
+$('#donebtn').click(function()
 {
 	  window.location = 'index_home.html'
 });
 });
+$(document).ready(function() {
+var remmonth,remdate;
+$(function() {
+
+      $( "#datepicker" ).datepicker({
+	onSelect: function(dateText, inst) {
+      /* alert("Selected: " + dateText +
+      "\n\nid: " + inst.id +
+      "\nselectedDay: " + inst.selectedDay +
+      "\nselectedMonth: " + inst.selectedMonth +
+      "\nselectedYear: " + inst.selectedYear);*/
+	  	remdate=inst.selectedDay;
+	    remmonth=inst.selectedMonth+1;
+	  //	alert(remmonth);
+	//	alert(remdate);
+	 localStorage.setItem('remddate', remdate);
+	localStorage.setItem('remmonth',remmonth);	
+	   },
+	   showButtonPanel: true,
+	    minDate: 0
+	  });
+
+ });  
+ 
+$('#setrem').click(function(){
+ alert("Reminder Date saved succesfully");
+});
+});
+
+  // to reset
+  // localStorage.clear();*/
+
   </script>
   </head>
   <body>
-  <article id="selfcheck1" data-role="page">
+  <article id="reminder" data-role="page">
     <div data-role="content">
       <div id="header">
         <div id="titleheader"> 
           <!-- <div id="headertext"> </div>-->
           <table id="wrapper">
             <tr>
-              <td> <!--<img src="remindertext.png" />--> Reminder</td>
+              <td><!--<img src="remindertext.png" />--> Reminder</td>
             </tr>
           </table>
         </div>
@@ -37,34 +68,31 @@ $('#donebtn').live("click",function()
         </div>
       </div>
       <div id="main-content">
-        <div id="main"> <!-- start main -->
-          <div id="message"> <!-- start message --> 
-            <img src="sorry.png" alt="Sorry!" id="sorry" width="80%" />
-            <p>Our App is currently under construction.</p>
-            <!-- you can enter your own customised message here -->
-            <p>We'll be done soon!</p>
+       <!-- <form id="reminderform" method="post" action="">
+          <div data-role="fieldcontain">
+            <label for="calendar">Set Reminder</label>
+            <input type="text" id="calendar" name="calendar">
           </div>
-          <!-- end message -->
-          <div id="tweet_wrap">
-            <div id="tweet"> <!-- start tweet -->
-              <p> <img src="loading.gif" alt="loading..." class="loading centerimg"/> </p>
-            </div>
-            <!-- end tweet --> 
-          </div>
-          
-          <!-- end tweet_wrap -->
-          <div id="progress" class="progress70"> <!--<img src="70-trans.png"  class="centerimg"/>--> 
-            <!-- change this to 'progressXX' to change the progress bar (where XX is either 10, 20, 30... 100) --> 
-          </div>
-          <p id="completion">It's about 70% complete!</p>
-          <!-- change this to state the % completed --> 
-        </div>
-        <!-- end main --> 
-        
+          <input type="button" value="Set reminder" id="setreminder"/>
+        </form>-->
+     <p>Select Date: <input type="text" id="datepicker" /></p> 
+       <button id="setrem">Save Reminder </button>
+       <p id="datenow"> </p>
+        <p id="monthnow"> </p>
       </div>
     </div>
-    <div class="clear"> </div>
-    <footer id="footer"> </footer>
+<div class="clear"> </div>
+ <div class="bottomnav">
+        <div class="btnnav">
+          <div id="leftbtn">
+          
+          </div>
+          <div id="rightlogo"> </div>
+        </div>
+      </div>
+    </div>    
+   <div class="clear"> </div>
+  <footer id="footer"> </footer>
   </article>
 </body>
 </html>
