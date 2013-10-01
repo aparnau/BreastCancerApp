@@ -32,7 +32,14 @@ $('#calculate').live("click",function()
 
 });
 });
-
+$(function(){
+$('.calcbtn').live("click",function()
+{
+	var clickedID = this.id;
+//	alert(clickedID);
+ $(".riskcalculation #main-content .ui-btn #"+clickedID).parent().addClass("active");
+});
+});
 </script>
 </head>
 <body class="riskcalculation">
@@ -44,7 +51,7 @@ $('#calculate').live("click",function()
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -61,10 +68,10 @@ $('#calculate').live("click",function()
         Calculator below.</p>
       <form id="risk1" name="risk1">
         <label for="history">1.Do you have a medical history history of
-any breast cancer or of ductal carcinoma
-in situ (DCIS) or lobular carcinoma in situ
-(LCIS)? </label>
-<div class="clear"> </div>
+          any breast cancer or of ductal carcinoma
+          in situ (DCIS) or lobular carcinoma in situ
+          (LCIS)? </label>
+        <div class="clear"> </div>
         <button type="button" value="1" id="history1" onClick="checkHistory(this.value)" class="calcbtn">Yes</button>
         <button type="button" value="0" id="history2" onClick="checkHistory(this.value)" class="calcbtn">No</button>
       </form>
@@ -88,7 +95,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -183,7 +190,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -223,7 +230,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -266,7 +273,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -280,10 +287,10 @@ in situ (DCIS) or lobular carcinoma in situ
       <form id="risk5" name="risk5">
         <label for="related_with_breast_cancer">5. How many of your first-degree relatives -mother, sisters, daughters - have had breast cancer?</label>
         <div class="clear"> </div>
-        <button type="button" value="99" id="related_with_breast_cancer2" onClick="getrelated_with_breast_cancer(this.value)">Unknown</button>
-        <button type="button" value="0" id="related_with_breast_cancer3" onClick="getrelated_with_breast_cancer(this.value)">0</button>
-        <button type="button" value="1" id="related_with_breast_cancer4" onClick="getrelated_with_breast_cancer(this.value)">1</button>
-        <button type="button" value="2" id="related_with_breast_cancer5" onClick="getrelated_with_breast_cancer(this.value)">&gt; 1</button>
+        <button type="button" value="99" id="related_with_breast_cancer2" onClick="getrelated_with_breast_cancer(this.value)" class="calcbtn">Unknown</button>
+        <button type="button" value="0" id="related_with_breast_cancer3" onClick="getrelated_with_breast_cancer(this.value)" class="calcbtn">0</button>
+        <button type="button" value="1" id="related_with_breast_cancer4" onClick="getrelated_with_breast_cancer(this.value)" class="calcbtn">1</button>
+        <button type="button" value="2" id="related_with_breast_cancer5" onClick="getrelated_with_breast_cancer(this.value)" class="calcbtn">&gt; 1</button>
       </form>
       <div class="clear"> </div>
     </div>
@@ -307,7 +314,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -321,36 +328,36 @@ in situ (DCIS) or lobular carcinoma in situ
       <form id="risk6" name="risk6">
         <label for="ever_had_biopsy">6. Have you ever had a breast biopsy?</label>
         <div class="clear"> </div>
-        <button type="button" value="99" id="ever_had_biopsy1" onClick="checkBiopsy(this.value);">Unknown</button>
-        <button type="button" value="0" id="ever_had_biopsy2" onClick="checkBiopsy(this.value);">No</button>
-        <button type="button" value="1" id="ever_had_biopsy3" onClick="checkBiopsy(this.value);">Yes</button>
+        <button type="button" value="99" id="ever_had_biopsy1" onClick="checkBiopsy(this.value);" class="calcbtn">Unknown</button>
+        <button type="button" value="0" id="ever_had_biopsy2" onClick="checkBiopsy(this.value);" class="calcbtn">No</button>
+        <button type="button" value="1" id="ever_had_biopsy3" onClick="checkBiopsy(this.value);" class="calcbtn">Yes</button>
         <div class="clear"> </div>
         <label for="previous_biopsies">6a. How many breast biopsies (positive or negative) have you had?</label>
         <div class="clear"> </div>
         <div id="btn1" style="display:none;" >
-          <button type="button" value="99" id="previous_biopsies1" onClick="test(this.value);" >N/a</button>
+          <button type="button" value="99" id="previous_biopsies1" onClick="test(this.value);" class="calcbtn">N/a</button>
         </div>
         <div id="btn2" style="display:none">
-          <button type="button" value="1" id="previous_biopsies2"  onClick="test(this.value);" >1</button>
+          <button type="button" value="1" id="previous_biopsies2"  onClick="test(this.value);" class="calcbtn">1</button>
         </div>
         <div id="btn3" style="display:none">
-          <button type="button" value="2" id="previous_biopsies3"  onClick="test(this.value);" >&gt; 1</button>
+          <button type="button" value="2" id="previous_biopsies3"  onClick="test(this.value);" class="calcbtn">&gt; 1</button>
         </div>
         <br/>
         <div class="clear"> </div>
         <label for="biopsy_with_hyperplasia">6b. Have you had at least one breast biopsy with atypical hyperplasia?</label>
         <div class="clear"> </div>
         <div id="btn4" style="display:none">
-          <button type="button" value="99" id="biopsy_with_hyperplasia1" onClick="test1(this.value);" >N/a</button>
+          <button type="button" value="99" id="biopsy_with_hyperplasia1" onClick="test1(this.value);" class="calcbtn">N/a</button>
         </div>
         <div id="btn5" style="display:none">
-          <button type="button" value="99" id="biopsy_with_hyperplasia2" onClick="test1(this.value);" >Unknown</button>
+          <button type="button" value="99" id="biopsy_with_hyperplasia2" onClick="test1(this.value);" class="calcbtn">Unknown</button>
         </div>
         <div id="btn6" style="display:none">
-          <button type="button" value="0" id="biopsy_with_hyperplasia3" onClick="test1(this.value);">No</button>
+          <button type="button" value="0" id="biopsy_with_hyperplasia3" onClick="test1(this.value);" class="calcbtn">No</button>
         </div>
         <div id="btn7" style="display:none">
-          <button type="button" value="1" id="biopsy_with_hyperplasia4" onClick="test1(this.value);">Yes</button>
+          <button type="button" value="1" id="biopsy_with_hyperplasia4" onClick="test1(this.value);" class="calcbtn">Yes</button>
         </div>
       </form>
       <div class="clear"> </div>
@@ -374,7 +381,7 @@ in situ (DCIS) or lobular carcinoma in situ
         <!--   <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="assesriskheader.png" />--> Assess Risk</td>
+            <td><!--<img src="assesriskheader.png" />--> Assess Risk</td>
           </tr>
         </table>
       </div>
@@ -388,40 +395,40 @@ in situ (DCIS) or lobular carcinoma in situ
       <form id="risk7" name="risk7">
         <label for="race">7. What is your race/ethnicity?</label>
         <div class="clear"> </div>
-        <button type="button" value="1" id="race1" onClick="checkEthnicity(this.value)">White</button>
-        <button type="button" value="2" id="race2" onClick="checkEthnicity(this.value)">African American</button>
-        <button type="button" value="3" id="race3" onClick="checkEthnicity(this.value)">Hispanic</button>
-        <button type="button" value="4" id="race4" onClick="checkEthnicity(this.value)">Asian-American</button>
-        <button type="button" value="5" id="race5" onClick="checkEthnicity(this.value)">American Idian or Alaskan Native</button>
-        <button type="button" value="6" id="race6" onClick="checkEthnicity(this.value)">Unknown</button>
-           <div class="clear"> </div>
+        <button type="button" value="1" id="race1" onClick="checkEthnicity(this.value)" class="calcbtn">White</button>
+        <button type="button" value="2" id="race2" onClick="checkEthnicity(this.value)" class="calcbtn">African American</button>
+        <button type="button" value="3" id="race3" onClick="checkEthnicity(this.value)" class="calcbtn">Hispanic</button>
+        <button type="button" value="4" id="race4" onClick="checkEthnicity(this.value)" class="calcbtn">Asian-American</button>
+        <button type="button" value="5" id="race5" onClick="checkEthnicity(this.value)" class="calcbtn">American Idian or Alaskan Native</button>
+        <button type="button" value="6" id="race6" onClick="checkEthnicity(this.value)" class="calcbtn">Unknown</button>
+        <div class="clear"> </div>
         <label for="sub_ethnicity">7a. What is the sub-race/ethnicity</label>
         <div class="clear"> </div>
         <div id="btn71" style="display:none">
-          <button type="button" value="99" id="subrace1" onClick="subrace(this.value)">N/a</button>
+          <button type="button" value="99" id="subrace1" onClick="subrace(this.value)" class="calcbtn">N/a</button>
         </div>
         <div id="btn72" style="display:none">
-          <button type="button" value="7" id="subrace2" onClick="subrace(this.value)">Chinese</button>
+          <button type="button" value="7" id="subrace2" onClick="subrace(this.value)" class="calcbtn">Chinese</button>
         </div>
         <div id="btn73" style="display:none">
-          <button type="button" value="8" id="subrace3" onClick="subrace(this.value)">Japanese</button>
+          <button type="button" value="8" id="subrace3" onClick="subrace(this.value)" class="calcbtn">Japanese</button>
         </div>
         <div id="btn74" style="display:none">
-          <button type="button" value="9" id="subrace4" onClick="subrace(this.value)">Filipino</button>
+          <button type="button" value="9" id="subrace4" onClick="subrace(this.value)" class="calcbtn">Filipino</button>
         </div>
         <div id="btn75" style="display:none">
-          <button type="button" value="10" id="subrace5" onClick="subrace(this.value)" >Hawaiian</button>
+          <button type="button" value="10" id="subrace5" onClick="subrace(this.value)" class="calcbtn">Hawaiian</button>
         </div>
         <div id="btn76" style="display:none">
-          <button type="button" value="11" id="subrace6" onClick="subrace(this.value)">Other Pacific Islander</button>
+          <button type="button" value="11" id="subrace6" onClick="subrace(this.value)" class="calcbtn">Other Pacific Islander</button>
         </div>
         <div id="btn77" style="display:none">
-          <button type="button" value="12" id="subrace7" onClick="subrace(this.value)">Other Asian-American</button>
+          <button type="button" value="12" id="subrace7" onClick="subrace(this.value)" class="calcbtn">Other Asian-American</button>
         </div>
-           <div class="clear"> </div>
+        <div class="clear"> </div>
         <div class="calbtn">
-            <input type="button" value="CALCULATE RISK" id="calculate"/>
-          </div>
+          <input type="button" value="CALCULATE RISK" id="calculate"/>
+        </div>
       </form>
       <div class="clear"> </div>
     </div>
@@ -437,7 +444,6 @@ in situ (DCIS) or lobular carcinoma in situ
   <footer id="footer"> </footer>
 </article>
 <!-- Result -->
-
 
 </body>
 </html>

@@ -9,29 +9,31 @@
 html, body {
 	height: 100%;
 	text-align: left;
-	text-shadow:none;
+	text-shadow: none;
 }
-.ui-body-c, .ui-overlay-c,.ui-overlay-a {
+.ui-body-c, .ui-overlay-c, .ui-overlay-a {
 	color: #000;
-	    text-shadow: none !important;
+	text-shadow: none !important;
 }
 .ui-overlay-a {
-	    text-shadow: none !important;
+	text-shadow: none !important;
 }
-
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button {
+    font-family:Georgia,Arial,sans-serif;
+}
 .clear {
 	clear: both;
 	display: block;
 	height: 0;
 	visibility: hidden;
 }
-.ui-body-c, .ui-overlay-c,.ui-overlay-a {
-	background-image:-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)) !important;
-	background-image:-webkit-linear-gradient(#FFF, #FFF) !important;
-	background-image:-moz-linear-gradient(#FFF, #FFF) !important;
-	background-image:-ms-linear-gradient(#FFF, #FFF) !important;
-	background-image:-o-linear-gradient(#FFF, #FFF) !important;
-	background-image:linear-gradient(#FFF, #FFF) !important;
+.ui-body-c, .ui-overlay-c, .ui-overlay-a {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#FFF)) !important;
+	background-image: -webkit-linear-gradient(#FFF, #FFF) !important;
+	background-image: -moz-linear-gradient(#FFF, #FFF) !important;
+	background-image: -ms-linear-gradient(#FFF, #FFF) !important;
+	background-image: -o-linear-gradient(#FFF, #FFF) !important;
+	background-image: linear-gradient(#FFF, #FFF) !important;
 }
 /* Loader Styles */
 
@@ -69,14 +71,14 @@ em {
 #main-content {
 	/*left: 50%;
 	margin:-55px 0 0 -135px;*/
-	 margin: auto;
+	margin: auto;
 	padding: 0 3% 3% !important;
 	position: relative;
 	/*	width: 70%;*/
 	word-wrap: break-word;
 }
 /* font import */
-@font-face {
+/*@font-face {
 	font-family: 'Conv_ufonts.com_whitney-light_1_';
 	src: url('ufonts.com_whitney-light_1_.eot');
 	src: url('ufonts.com_whitney-light_1_.eot') format('embedded-opentype'), url('ufonts.com_whitney-light_1_.woff') format('woff'), url('ufonts.com_whitney-light_1_.ttf') format('truetype'), url('ufonts.com_whitney-light_1_.svg#fonts.com_whitney-light_1_') format('svg');
@@ -87,69 +89,79 @@ em {
 	font-family: 'Conv_ufonts.com_whitney-light_1_';
 	padding: 0 !important;
 }
-/*.ui-icon {
+ui-icon {
 	background-image: url("ui-icons_222222_256x240.png") !important;
 }*/
 /* Modal Popup */
 #dialog-message {
-	display:none;
+	display: none;
 }
 /* Overlay */
 #simplemodal-overlay {
-	background-color:#000;
+	background-color: #000;
 }
 /* Container */
 #simplemodal-container {
-	height:100px;
-	width:200px;
-	color:#bbb;
-	background-color:#333;
-	border:4px solid #444;
-	padding:12px;
+	height: 100px;
+	width: 200px;
+	color: #bbb;
+	background-color: #333;
+	border: 4px solid #444;
+	padding: 12px;
 }
 #simplemodal-container .simplemodal-data {
-	padding:8px;
+	padding: 8px;
 }
 #simplemodal-container code {
-	background:#141414;
-	border-left:3px solid #65B43D;
-	color:#bbb;
-	display:block;
-	font-size:12px;
-	margin-bottom:12px;
-	padding:4px 6px 6px;
+	background: #141414;
+	border-left: 3px solid #65B43D;
+	color: #bbb;
+	display: block;
+	font-size: 12px;
+	margin-bottom: 12px;
+	padding: 4px 6px 6px;
 }
 #simplemodal-container a {
-	color:#ddd;
+	color: #ddd;
 }
 #simplemodal-container a.modalCloseImg {
-	background:url(x.png) no-repeat;
-	width:25px;
-	height:29px;
-	display:inline;
-	z-index:3200;
-	position:absolute;
-	top:-15px;
-	right:-16px;
-	cursor:pointer;
+	background: url(x.png) no-repeat;
+	width: 25px;
+	height: 29px;
+	display: inline;
+	z-index: 3200;
+	position: absolute;
+	top: -15px;
+	right: -16px;
+	cursor: pointer;
 }
 #simplemodal-container h3 {
-	color:#84b8d9;
+	color: #84b8d9;
 }
 /* Button styles */
 .ui-focus, .ui-btn:focus {
 	box-shadow: none !important;
 }
 .ui-shadow {
-	box-shadow: none;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.ui-btn-corner-all {
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
 }
 .ui-btn-up-c, .ui-btn-hover-c {
 	background: none repeat scroll 0 0 transparent !important;
 	border: medium none !important;
 	text-shadow: none !important;
+	box-shadow: none !important;
 }
 .ui-btn-inner {
-	border:none !important;
+	border: none !important;
 	padding: 0 !important;
 }
 .ui-btn {
@@ -170,40 +182,49 @@ em {
 }
 #donebtn {
 	background-color: transparent !important;
-	background-image:url(donebtn.png);
-	background-repeat:no-repeat;
-	height:42px;
-	width:104px;
+	background-image: url(donebtn.png);
+	background-repeat: no-repeat;
+	height: 42px;
+	width: 104px;
 	opacity: 1;
-    border-radius: 0 0 0 0 !important;
-	    border: medium none !important;
+	border-radius: 0 0 0 0 !important;
+	border: medium none !important;
 }
 #topmenu .ui-btn {
 	float: left;
-	width:104px;
-	margin-bottom:0;
-	height:42px;
+	width: 104px;
+	margin-bottom: 0;
+	height: 42px;
 }
 #topmenu2 .ui-btn {
 	float: left;
-	margin-bottom:0;
+	margin-bottom: 0;
 	margin-top: 0;
-	width:104px;
-	height:42px;
+	width: 104px;
+	height: 42px;
 }
 #header {
-	height:162px;
+	height: 162px;
 	width: 100%;
 }
+body > .ui-page .ui-content {
+	height: auto;
+	min-height: 100% !important;
+	position: relative;
+padding: 0px !important;
+}
 #footer {
-	background-image:url(footerbg.png);
-	background-repeat:repeat-x;
-	height:22px;
+	background-image: url(footerbg.png);
+	background-repeat: repeat-x;
+	clear: both;
+	position: relative;
+	z-index: 10;
+	height: 22px;
 }
 #titleheader {
-	background-image:url(headerbgstrip.png);
-	background-repeat:repeat-x;
-	height:95px;
+	background-image: url(headerbgstrip.png);
+	background-repeat: repeat-x;
+	height: 95px;
 }
 #headertext {
 	background-image: url("knwheader.png");
@@ -218,7 +239,7 @@ em {
 	width: 430px;
 }
 #wrapper {
-	height:100%;
+	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -235,97 +256,97 @@ em {
 }
 #knowabc {
 	background-color: transparent !important;
-	background-image:url(knwabc.png);
-	background-repeat:no-repeat;
+	background-image: url(knwabc.png);
+	background-repeat: no-repeat;
 	opacity: 1;
-	float:left;
+	float: left;
 }
 #accessrisk {
 	background-color: transparent !important;
-	background-image:url(assesrisk.png);
-	background-repeat:no-repeat;
+	background-image: url(assesrisk.png);
+	background-repeat: no-repeat;
 	opacity: 1;
-	float:left;
+	float: left;
 }
 #selfcheck {
 	background-color: transparent !important;
-	background-image:url(selfcheck.png);
-	background-repeat:no-repeat;
+	background-image: url(selfcheck.png);
+	background-repeat: no-repeat;
 	opacity: 1;
-	float:left;
+	float: left;
 }
 #findcenter {
 	background-color: transparent !important;
-	background-image:url(findcenter.png);
-	background-repeat:no-repeat;
+	background-image: url(findcenter.png);
+	background-repeat: no-repeat;
 	opacity: 1;
-	float:left;
+	float: left;
 }
 #reminder {
 	background-color: transparent !important;
-	background-image:url(reminder.png);
-	background-repeat:no-repeat;
+	background-image: url(reminder.png);
+	background-repeat: no-repeat;
 	opacity: 1;
 }
 /* KnowabtABC */
 
 #facts {
 	background-color: transparent !important;
-	background-image:url(interesting.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(interesting.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 #whatis {
 	background-color: transparent !important;
-	background-image:url(whatbc.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(whatbc.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 #statistics {
 	background-color: transparent !important;
-	background-image:url(statistics.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(statistics.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 #india {
 	background-color: transparent !important;
-	background-image:url(indiastat.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(indiastat.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 #signs {
 	background-color: transparent !important;
-	background-image:url(signs.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(signs.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 #treatment {
 	background-color: transparent !important;
-	background-image:url(treatment.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(treatment.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 p.treatheader {
-	font-weight:bold;
+	font-weight: bold;
 }
 #tips {
 	background-color: transparent !important;
-	background-image:url(tips.png);
-	background-repeat:no-repeat;
-	height:44px;
-	width:283px;
+	background-image: url(tips.png);
+	background-repeat: no-repeat;
+	height: 44px;
+	width: 283px;
 	opacity: 1;
 }
 .bottomnav {
@@ -343,19 +364,19 @@ p.treatheader {
 }
 #leftnav {
 	background-color: transparent !important;
-/*	background-image:url(leftarrow.png);
+	/*	background-image:url(leftarrow.png);
 	background-repeat:no-repeat; */
-	height:34px;
-	width:37px;
-	opacity:1;
+	height: 34px;
+	width: 37px;
+	opacity: 1;
 }
 #rightnav {
 	background-color: transparent !important;
-/*	background-image:url(rightarrow.png);
+	/*	background-image:url(rightarrow.png);
 	background-repeat:no-repeat; */
-	height:34px;
-	width:37px;
-	opacity:1;
+	height: 34px;
+	width: 37px;
+	opacity: 1;
 }
 #leftbtn .ui-btn {
 	float: left;
@@ -376,13 +397,13 @@ p.titletext {
 	font-weight: bold;
 }
 #main-content p {
-	font-size:120%;
-	word-wrap:break-word;
+	font-size:108%;/* 120%;*/
+	word-wrap: break-word;
 	width: 100%;/* margin: 2px !important;*/
 }
 #main-content h3 {
 	width: 100%;
-	word-wrap:break-word;
+	word-wrap: break-word;
 }
 #main-content h4 {
 	font-size: 110%;
@@ -454,7 +475,7 @@ img.centerimg {
 .highlight {
 	background-color: #ECECED;
 	padding: 2%;
-	width:80%;
+	width: 80%;
 }
 #highrisk {
 	background-color: transparent !important;
@@ -469,12 +490,12 @@ img.centerimg {
 	color: #FFF !important;
 }
 #riskcalc label.ui-select {
-	color:#000;
+	color: #000;
 	font-size: 17px;
 	line-height: 1.6;
 }
 #riskcalc .ui-btn-up-d a.ui-link-inherit, #riskcalc .ui-btn-up-c a.ui-link-inherit, #riskcalc .ui-btn-up-b a.ui-link-inherit, #riskcalc .ui-btn-up-a a.ui-link-inherit, #riskcalc .ui-btn-hover-d:visited, #riskcalc .ui-btn-hover-d:hover, #riskcalc .ui-btn-hover-d a.ui-link-inherit, #riskcalc .ui-btn-hover-c:visited, #riskcalc .ui-btn-hover-c:hover, #riskcalc .ui-btn-hover-c a.ui-link-inherit, #riskcalc .ui-btn-hover-a {
-	color:#FFF !important;
+	color: #FFF !important;
 }
 #riskcalc .ui-btn-inner {
 	padding: 0.6em 20px !important;
@@ -489,20 +510,20 @@ img.centerimg {
 	color: yellow;
 }
 #risk .calbtn .ui-btn-hover-c, #risk .calbtn .ui-btn-up-c {
-	background-image:-webkit-gradient(linear, left top, left bottom, from(#d2118a), to(#af0068)) !important;
-	background-image:-webkit-linear-gradient(#d2118a, #af0068) !important;
-	background-image:-moz-linear-gradient(#d2118a, #af0068) !important;
-	background-image:-ms-linear-gradient(#d2118a, #af0068) !important;
-	background-image:-o-linear-gradient(#d2118a, #af0068) !important;
-	background-image:linear-gradient(#d2118a, #af0068) !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#d2118a), to(#af0068)) !important;
+	background-image: -webkit-linear-gradient(#d2118a, #af0068) !important;
+	background-image: -moz-linear-gradient(#d2118a, #af0068) !important;
+	background-image: -ms-linear-gradient(#d2118a, #af0068) !important;
+	background-image: -o-linear-gradient(#d2118a, #af0068) !important;
+	background-image: linear-gradient(#d2118a, #af0068) !important;
 }
 #risk .ui-select .ui-btn-hover-c, #risk .ui-select .ui-btn-up-c {
-	background-image:-webkit-gradient(linear, left top, left bottom, from(#f393bd), to(#f393bd)) !important;
-	background-image:-webkit-linear-gradient(#f393bd, #f393bd) !important;
-	background-image:-moz-linear-gradient(#f393bd, #f393bd) !important;
-	background-image:-ms-linear-gradient(#f393bd, #f393bd) !important;
-	background-image:-o-linear-gradient(#f393bd, #f393bd) !important;
-	background-image:linear-gradient(#f393bd, #f393bd) !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f393bd), to(#f393bd)) !important;
+	background-image: -webkit-linear-gradient(#f393bd, #f393bd) !important;
+	background-image: -moz-linear-gradient(#f393bd, #f393bd) !important;
+	background-image: -ms-linear-gradient(#f393bd, #f393bd) !important;
+	background-image: -o-linear-gradient(#f393bd, #f393bd) !important;
+	background-image: linear-gradient(#f393bd, #f393bd) !important;
 }
 #risk .ui-btn {
 	height: 40px;
@@ -528,7 +549,7 @@ img.centerimg {
 	background-repeat: no-repeat;
 	height: 30px;
 	left: 50%;
-	margin-left:-70px;
+	margin-left: -70px;
 	margin-top: 50px;
 	position: absolute;
 	top: 0;
@@ -543,13 +564,15 @@ img.centered {
 #locatecenter {
 }
 #locatecenter .ui-select .ui-btn-hover-c, #locatecenter .ui-select .ui-btn-up-c {
-	background-image:-webkit-gradient(linear, left top, left bottom, from(#F831A3), to(#F831A3)) !important;
-	background-image:-webkit-linear-gradient(#F831A3, #F831A3) !important;
-	background-image:-moz-linear-gradient(#F831A3, #F831A3) !important;
-	background-image:-ms-linear-gradient(#F831A3, #F831A3) !important;
-	background-image:-o-linear-gradient(#F831A3, #F831A3) !important;
-	background-image:linear-gradient(#F831A3, #F831A3) !important;
-	Color:#fff !important;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F831A3), to(#F831A3)) !important;
+	background-image: -webkit-linear-gradient(#F831A3, #F831A3) !important;
+	background-image: -moz-linear-gradient(#F831A3, #F831A3) !important;
+	background-image: -ms-linear-gradient(#F831A3, #F831A3) !important;
+	background-image: -o-linear-gradient(#F831A3, #F831A3) !important;
+	background-image: linear-gradient(#F831A3, #F831A3) !important;
+	Color: #fff !important;
+	margin-left: 10px;
+    margin-right: 10px;
 }
 #locatecenter .ui-select .ui-icon, #locatecenter .ui-select .ui-widget-content .ui-icon {
 	background-color: transparent;
@@ -561,26 +584,28 @@ img.centered {
 	padding: 0.6em 20px !important;
 }
 #searchwell {
-	width:90%;
-	padding-bottom:10px;
-  padding-left:2%;
+	width: 90%;
+	padding-bottom: 10px;
+	padding-left: 2%;
+	 padding-top: 2%;
 }
 .unselected {
 	/*	background-color: #ECECED; 
-	margin-bottom: 40px;*/
-	 color: #333333;
+	margin-bottom: 40px;
+	height: 100px;*/
+	color: #333333;
 	float: left;
-	height: 100px;
-	line-height: 1;
 	
+	line-height: 1;
 	margin-right: 10px;
 	padding-bottom: 5px;
 	text-align: left;
-	width:320px;/* 240px;*/
+	width: 320px;/* 240px;*/
 	word-wrap: break-word;
+	padding-top: 2%;
 }
 #map {
-	border:3px solid #666;
+	border: 3px solid #666;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
@@ -595,7 +620,7 @@ img.centered {
 	text-decoration: none;
 }
 .gs-directions, .gs-directions-to-from, .gs-watermark {
-	display:none;
+	display: none;
 }
 /* page under construction */
 #main {
@@ -609,8 +634,8 @@ img.centered {
 	font-size: 22pt;
 }
 #message p {
-	margin:2%;
-	font-size:65%;
+	margin: 2%;
+	font-size: 65%;
 }
 #sorry {
 /*	margin-left: 60px;
@@ -688,9 +713,9 @@ img.centered {
 	margin-top:28px;*/
 }
 #tweet ul {
-	list-style:none;
-	float:left;
-	margin:10px 0px 0px 0px;
+	list-style: none;
+	float: left;
+	margin: 10px 0px 0px 0px;
 }
 #tweet li {
 	font-size: 18px;
@@ -701,12 +726,12 @@ img.centered {
 }
 #twitterLogo {
 	width: 55px;
-	height:55px;
+	height: 55px;
 	background-image: url(img/twitter-trans.png);
 	background-repeat: no-repeat;
-	position:absolute;
-	top:13px;
-	left:75px
+	position: absolute;
+	top: 13px;
+	left: 75px
 }
 #twitter img {
 	margin-left: -200px;
@@ -715,7 +740,7 @@ img.centered {
 
 #riskbtn .ui-btn-inner {
 	white-space: normal !important;
-	padding:0.5em 19px !important;
+	padding: 0.5em 19px !important;
 	width: auto !important;
 }
 #mainbtn.ui-btn-corner-all, #riskbtn.ui-btn-corner-all {
@@ -725,19 +750,19 @@ img.centered {
 	padding: 0 1px 0 0;
 }
 #riskbtn {
-	background:#eb008b !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
-	color:#FFF !important;
-	font-weight:normal;
-	width:auto !important;
+	color: #FFF !important;
+	font-weight: normal;
+	width: auto !important;
 	height: auto !important;
-	font-family:Tahoma, Geneva, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	word-wrap: break-word;
 }
 /* prettyphoto styles */
@@ -746,24 +771,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', end
 }
 /* Centering menu */
 #mainbtn {
-	background:#eb008b !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
-	color:#FFF !important;
-	font-weight:normal;
-	width:auto !important;
+	color: #FFF !important;
+	font-weight: normal;
+	width: auto !important;
 	height: auto !important;
-	font-family:Tahoma, Geneva, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	word-wrap: break-word;
 }
 #mainbtn .ui-btn-inner {
 	white-space: normal !important;
-	padding:0.7em !important;
+	padding: 0.7em !important;
 	width: auto !important;
 }
 #topmenu {
@@ -771,56 +796,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', end
 	background-repeat: repeat-x;
 	height: 68px;
 	width: 100%;
-	background-position:left bottom;
+	background-position: left bottom;
 }
 #topmenu2 {
-	background-image:url(topbg2.png);
+	background-image: url(topbg2.png);
 	background-repeat: repeat-x;
-	height:62px;
-	width:100%;
-	background-position:left bottom;
+	height: 62px;
+	width: 100%;
+	background-position: left bottom;
 }
 .centeredmenu {
-	float:left;
-	width:100%;
-	overflow:hidden;
-	position:relative;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
 }
 .centeredmenu ul {
-	clear:left;
-	float:left;
-	list-style:none;
-	margin:0;
-	padding:0;
-	position:relative;
-	left:50%;
-	text-align:center;
+	clear: left;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 50%;
+	text-align: center;
 }
 .centeredmenu ul li {
-	display:block;
-	float:left;
-	list-style:none;
-	margin:0;
-	padding:0;
-	position:relative;
-	right:50%;
-	margin:9px 1px 0 0;/* 0 1px 0 0;*/
+	display: block;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	right: 50%;
+	margin: 9px 1px 0 0;/* 0 1px 0 0;*/
 }
 .centeredmenu ul li a {
-	display:block;
-	background:#ddd;
-	color:#000;
-	text-decoration:none;
-	line-height:1.3em;
+	display: block;
+	background: #ddd;
+	color: #000;
+	text-decoration: none;
+	line-height: 1.3em;
 }
 .centeredmenu ul li a:hover {
-	background:#369;
-	color:#fff;
+	background: #369;
+	color: #fff;
 }
 .centeredmenu ul li a.active, .centeredmenu ul li a.active:hover {
-	color:#fff;
-	background:#000;
-	font-weight:bold;
+	color: #fff;
+	background: #000;
+	font-weight: bold;
 }
 /*.menu {
 	left: 36%;
@@ -835,201 +860,227 @@ margin-left:50px;
 }*/
 
 .riskcalculation #main-content .ui-btn {
-	background:#eb008b !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
-	color:#FFF !important;
-	font-weight:normal;
-	width:auto !important;
+	color: #FFF !important;
+	font-weight: normal;
+	width: auto !important;
 	height: auto !important;
-	font-family:Tahoma, Geneva, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	word-wrap: break-word;
 	padding: 0.5em 19px !important;
 	white-space: normal !important;
 	width: auto !important;
-    float: left;
-    margin: 0.5em 1em;
+	float: left;
+	margin: 0.5em 1em;
 }
 .riskcalculation #main-content .ui-select .ui-btn {
-	background:#FFF !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* FF3.6+ */
+	background: #FFF !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFF), color-stop(100%, #FFF)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #FFF 0%, #FFF 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #FFF 0%, #FFF 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#FFF', GradientType=0 ) !important; /* IE6-9 */
-	color:#000 !important;
-	border:1px solid #eb008b !important;
-	
-	
+	color: #000 !important;
+	border: 1px solid #eb008b !important;
 }
 .riskcalculation .ui-select .ui-icon, .riskcalculation .ui-select .ui-widget-content .ui-icon {
-	background-color:#EB008B;
+	background-color: #EB008B;
 	background-image: url("arrowdown.png") !important;
 	background-position: 0 2px !important;
 	top: 56% !important;
 }
 .riskcalculation #main-content .calbtn .ui-btn {
 	background: #808285 !important; /* Old browsers */
-background: -moz-linear-gradient(top, #808285 1%, #414042 100%) !important; /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#808285), color-stop(100%,#414042)) !important; /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #808285 1%,#414042 100%) !important; /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #808285 1%,#414042 100%) !important; /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #808285 1%,#414042 100%) !important; /* IE10+ */
-background: linear-gradient(to bottom, #808285 1%,#414042 100%) !important; /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#808285', endColorstr='#414042',GradientType=0 ) !important; /* IE6-9 */
+	background: -moz-linear-gradient(top, #808285 1%, #414042 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #808285), color-stop(100%, #414042)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #808285 1%, #414042 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #808285 1%, #414042 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #808285 1%, #414042 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #808285 1%, #414042 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#808285', endColorstr='#414042', GradientType=0 ) !important; /* IE6-9 */
 	border: 2px solid #414142 !important;
 	border-radius: 5px !important;
-	color:#FFF !important;
-	font-weight:normal;
-	width:auto !important;
+	color: #FFF !important;
+	font-weight: normal;
+	width: auto !important;
 	height: auto !important;
-	font-family:Tahoma, Geneva, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	word-wrap: break-word;
 	padding: 0.5em 19px !important;
 	white-space: normal !important;
 	width: auto !important;
-	margin: 5.5em 1em !important; 
+	margin: 5.5em 1em !important;
 }
-
-.riskcalculation #main-content .ui-select .ui-btn-inner
-{
-	    padding: 0.6em 45px  !important;
+.riskcalculation #main-content .ui-select .ui-btn-inner {
+	padding: 0.6em 45px !important;
 }
-
 /* popup image */
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-background: url("x-close.png") !important;
-border: none !important;
+	background: url("x-close.png") !important;
+	border: none !important;
 }
-
 .ui-button-text-only .ui-button-text {
-color: #FFF;
+	color: #FFF;
 }
-
 .ui-dialog .ui-dialog-buttonpane button {
-background:#eb008b !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
-color: #FFFFFF !important;
+	color: #FFFFFF !important;
 }
-
 .ui-widget-header {
-border: none;
-background: url("headerbgstrip.png") !important;
-color: #222222;
-font-weight: bold;
-border-radius: 0 !important;
-padding-left: 0px !important;
-padding-right: 0px !important;
+	border: none;
+	background: url("headerbgstrip.png") !important;
+	color: #222222;
+	font-weight: bold;
+	border-radius: 0 !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
-
 .ui-dialog .ui-dialog-buttonpane {
-border-width: 0 !important;
-background-image: none !important;
-margin-top: 0 !important;
-padding: 0 !important;
+	border-width: 0 !important;
+	background-image: none !important;
+	margin-top: 0 !important;
+	padding: 0 !important;
 }
-
 .ui-widget-content {
-color: #000 !important;
-text-align: center;
-border: none !important;
-background: #ECECED !important;
+	color: #000 !important;
+	text-align: center;
+	border: none !important;
+	background: #ECECED !important;
 }
-
 .ui-button-text-only .ui-button-text {
-padding: .34em .6em !important;
+	padding: .34em .6em !important;
 }
-
 .ui-widget {
-font-family: 'Conv_ufonts.com_whitney-light_1_' !important;
+	font-family: 'Conv_ufonts.com_whitney-light_1_' !important;
 }
-
-
 .ui-state-default.okbtn {
-	background-image:none !important;
-background:#eb008b !important; /* Old browsers */
-	background:-moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background-image: none !important;
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
-	background:-ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
 	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
-color: #FFFFFF !important;
+	color: #FFFFFF !important;
 }
 /* reminder page */
 #reminder #btmheader {
-float:right;
+	float: right;
 }
-
-#ui-datepicker-div .ui-state-default,
-#ui-datepicker-div .ui-widget-content .ui-state-default,
-#ui-datepicker-div .ui-widget-header .ui-state-default {
-background: none !important;
-border:1px solid #999999 !important;
+#ui-datepicker-div .ui-state-default, #ui-datepicker-div .ui-widget-content .ui-state-default, #ui-datepicker-div .ui-widget-header .ui-state-default {
+	background: none !important;
+	border: 1px solid #999999 !important;
 }
-
-#setrem
-{
-	background-color: transparent !important;
-	background-image:url(savebtn.png);
-	background-repeat:no-repeat;
-	height:42px;
-	width:104px;
-	opacity: 1;
-    border-radius: 0 0 0 0 !important;
-    border: medium none !important;	
+#setrem {
+	background: #eb008b !important; /* Old browsers */
+	background: -moz-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eb008b), color-stop(100%, #9c005d)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eb008b 0%, #9c005d 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #eb008b 0%, #9c005d 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb008b', endColorstr='#9c005d', GradientType=0 ) !important; /* IE6-9 */
 	color: #FFF !important;
 	font-weight: normal;
+	width: auto !important;
+	height: auto !important;
 	font-family: Tahoma, Geneva, sans-serif;
+	word-wrap: break-word;
 }
-
-#ui-datepicker-div .ui-state-hover,#ui-datepicker-div .ui-widget-content .ui-state-hover,#ui-datepicker-div .ui-widget-header .ui-state-hover,
-#ui-datepicker-div .ui-state-focus, #ui-datepicker-div .ui-widget-content .ui-state-focus,#ui-datepicker-div .ui-widget-header .ui-state-focus,
-#ui-datepicker-div .ui-datepicker-next {
-border: 1px solid #999999;
-background-color: #FFF !important;
-font-weight: normal;
-color: #212121;
+#setrem.ui-btn-corner-all, #setrem.ui-btn-corner-all {
+	border-radius: 10px 10px 10px 10px !important;
 }
-#ui-datepicker-div .ui-datepicker-prev.ui-state-disabled
-{
+#setrem .ui-btn-inner {
+	white-space: normal !important;
+	padding: 0.5em 19px !important;
+	width: auto !important;
+}
+#ui-datepicker-div .ui-state-hover, #ui-datepicker-div .ui-widget-content .ui-state-hover, #ui-datepicker-div .ui-widget-header .ui-state-hover, #ui-datepicker-div .ui-state-focus, #ui-datepicker-div .ui-widget-content .ui-state-focus, #ui-datepicker-div .ui-widget-header .ui-state-focus, #ui-datepicker-div .ui-datepicker-next {
+	border: 1px solid #999999;
 	background-color: #FFF !important;
-	background-image:none !important;
+	font-weight: normal;
+	color: #212121;
 }
-
-#ui-datepicker-div .ui-state-hover .ui-icon,#ui-datepicker-div .ui-state-focus .ui-icon,
-#ui-datepicker-div .ui-icon {
-background-image: url(arrow.png);
-background-position:left left;
-background-color: #FFF !important;
+#ui-datepicker-div .ui-datepicker-prev.ui-state-disabled {
+	background-color: #FFF !important;
+	background-image: none !important;
 }
-#ui-datepicker-div .ui-datepicker-prev.ui-state-hover .ui-icon,#ui-datepicker-div .ui-datepicker-prev.ui-state-focus .ui-icon,
-#ui-datepicker-div .ui-datepicker-prev.ui-icon ,#ui-datepicker-div .ui-datepicker-prev .ui-icon.ui-icon-circle-triangle-w 
-{
+#ui-datepicker-div .ui-state-hover .ui-icon, #ui-datepicker-div .ui-state-focus .ui-icon, #ui-datepicker-div .ui-icon {
+	background-image: url(arrow.png);
+	background-position: left left;
+	background-color: #FFF !important;
+}
+#ui-datepicker-div .ui-datepicker-prev.ui-state-hover .ui-icon, #ui-datepicker-div .ui-datepicker-prev.ui-state-focus .ui-icon, #ui-datepicker-div .ui-datepicker-prev.ui-icon, #ui-datepicker-div .ui-datepicker-prev .ui-icon.ui-icon-circle-triangle-w {
 	background-image: url(arrowleft.png) !important;
 }
-#ui-datepicker-div .ui-icon-circle-triangle-e,
-#ui-datepicker-div .ui-icon-circle-triangle-w {
-background-position:2px 2px !important;
+#ui-datepicker-div .ui-icon-circle-triangle-e, #ui-datepicker-div .ui-icon-circle-triangle-w {
+	background-position: 2px 2px !important;
+}
+ #ui-datepicker-div .ui-icon, #ui-datepicker-div .ui-icon-searchfield:after #ui-datepicker-div .ui-state-hover, #ui-datepicker-div .ui-widget-content .ui-state-hover, #ui-datepicker-div .ui-widget-header .ui-state-hover, #ui-datepicker-div .ui-state-focus, #ui-datepicker-div .ui-widget-content .ui-state-focus, #ui-datepicker-div .ui-widget-header .ui-state-focus, .ui-datepicker .ui-datepicker-prev {
+ background-color:#FFF !important;
+}
+#datepicker.ui-body-c, #datepicker.ui-overlay-c {
+	border: 1px solid #b83187 !important;
+}
+/* Reminder table */
+
+.tablecontainer table {
+	border: 1px solid #B83187;
+	border-radius: 10px 10px 10px 10px;
+	font-size: medium;
+}
+.frst_col {
+	float: left;
+	text-align: center;
+}
+.top_clm {
+	border-bottom: 1px solid #B83187;
+}
+.sec_col, .thrd_col, .frth_col {
+	float: left;
+	word-wrap: break-word;
+}
+.frst_col, .header .sec_clm, .header .thrd_clm, .header .frth_clm, .frst_clm {
+ font-weight: bold;
+ text-align: center;
+}
+.frth_clm.last, .frth_col.last {
+	border-right: none !important;
+}
+/* assessment button click style */
+.riskcalculation #main-content .ui-btn.active
+{
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNWRiMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE5JSIgc3RvcC1jb2xvcj0iI2ZmNWRiMSIgc3RvcC1vcGFjaXR5PSIwLjk4Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZjAxN2MiIHN0b3Atb3BhY2l0eT0iMC44OSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+) !important;
+background: -moz-linear-gradient(top, rgba(255,93,177,1) 0%, rgba(255,93,177,0.98) 19%, rgba(239,1,124,0.89) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,93,177,1)), color-stop(19%,rgba(255,93,177,0.98)), color-stop(100%,rgba(239,1,124,0.89))) !important; /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,93,177,1) 0%,rgba(255,93,177,0.98) 19%,rgba(239,1,124,0.89) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,93,177,1) 0%,rgba(255,93,177,0.98) 19%,rgba(239,1,124,0.89) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,93,177,1) 0%,rgba(255,93,177,0.98) 19%,rgba(239,1,124,0.89) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,93,177,1) 0%,rgba(255,93,177,0.98) 19%,rgba(239,1,124,0.89) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5db1', endColorstr='#e3ef017c',GradientType=0 )!important; /* IE6-8 */
 }
 
-#ui-datepicker-div .ui-icon, #ui-datepicker-div .ui-icon-searchfield:after 
-#ui-datepicker-div .ui-state-hover, #ui-datepicker-div .ui-widget-content .ui-state-hover,#ui-datepicker-div .ui-widget-header .ui-state-hover, #ui-datepicker-div .ui-state-focus,#ui-datepicker-div .ui-widget-content .ui-state-focus,#ui-datepicker-div .ui-widget-header .ui-state-focus,
-.ui-datepicker .ui-datepicker-prev{
-	background-color:#FFF !important;
+/* center */
+#locatecenter .ui-btn-corner-all {
+    border-radius: 10px 10px 10px 10px !important;
 }

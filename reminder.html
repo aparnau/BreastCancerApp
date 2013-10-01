@@ -6,9 +6,9 @@
   <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
   <link rel="stylesheet" href="jquery-ui.css" />
   <link rel="stylesheet" href="style.css" />
-<script src="jquery-1.9.1.js"></script>
-<script src="jquery-ui.js"></script>
-<script src="jquery.mobile-1.1.0.min.js"></script>
+  <script src="jquery-1.9.1.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script src="jquery.mobile-1.3.1.min.js"></script>
   <script>
 $(function(){
 $('#donebtn').click(function()
@@ -17,7 +17,9 @@ $('#donebtn').click(function()
 });
 });
 $(document).ready(function() {
+
 var remmonth,remdate;
+
 $(function() {
 
       $( "#datepicker" ).datepicker({
@@ -42,6 +44,9 @@ $(function() {
  
 $('#setrem').click(function(){
  alert("Reminder Date saved succesfully");
+ var message=document.getElementById('messagetext').value;
+	localStorage.setItem('message',message);
+
 });
 });
 
@@ -51,7 +56,7 @@ $('#setrem').click(function(){
   </script>
   </head>
   <body>
-  <article id="reminder" data-role="page">
+  <div id="reminder" data-role="page">
     <div data-role="content">
       <div id="header">
         <div id="titleheader"> 
@@ -67,32 +72,79 @@ $('#setrem').click(function(){
           <button id="donebtn"> </button>
         </div>
       </div>
-      <div id="main-content">
-       <!-- <form id="reminderform" method="post" action="">
+      <div id="main-content"> 
+        <!-- <form id="reminderform" method="post" action="">
           <div data-role="fieldcontain">
             <label for="calendar">Set Reminder</label>
             <input type="text" id="calendar" name="calendar">
           </div>
           <input type="button" value="Set reminder" id="setreminder"/>
         </form>-->
-     <p>Select Date: <input type="text" id="datepicker" /></p> 
-       <button id="setrem">Save Reminder </button>
-       <p id="datenow"> </p>
+        <p>Select Date:
+          <input type="text" id="datepicker" />
+        </p>
+        <p> Message:
+          <input type="text" id="messagetext" />
+        </p>
+        <p class="titletext">Set Reminders for the following </p>
+        
+        <!-- Reminder Content -->
+        <div class="tablecontainer">
+          <table border="1" id="myTable" WIDTH="100%" style='table-layout:fixed'  bordercolor="#B83187">
+            <tr>
+              <th align="left" class="frst_clm">&nbsp; </th>
+              <th class="sec_clm">Low Risk Individuals </th>
+              <th class="thrd_clm">Moderate Risk Individuals </th>
+              <th class="frth_clm">High Risk Individuals </th>
+            </tr>
+            <tr>
+              <td align="left">Breast Self-Examination </td>
+              <td colspan="3">Every month between 3-7 days after your period </td>
+            </tr>
+            <!-- 1 row -->
+            <tr>
+              <td align="left"> Clinical breast exam </td>
+ <div class="clear"> </div>
+
+              <td>Age 20-39 years:every 3 years
+<div class="clear"> </div>              
+                Age more than or equal to 40 years:once a year</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <!-- 2 row -->
+            
+            <tr>
+              <td align="left">Mammography </td>
+              <td>Age more than or equal to 40 years:once a year</td>
+              <td>Once a year</td>
+              <td>Once a year</td>
+            </tr>
+            <!-- 3 row -->
+            <tr>
+              <td align="left">MRI</td>
+              <td>&nbsp;</td>
+              <td>Once a year,if recommended by a doctor</td>
+              <td>Once a year</td>
+            </tr>
+            <!-- 4 row -->
+          </table>
+        </div>
+        <!--  <button id="setrem">Save Reminder </button>-->
+        <div class="ui-block-a"><a href="#" data-role="button" rel="external" id="setrem">Save Reminder</a></div>
+        <p id="datenow"> </p>
         <p id="monthnow"> </p>
       </div>
     </div>
-<div class="clear"> </div>
- <div class="bottomnav">
-        <div class="btnnav">
-          <div id="leftbtn">
-          
-          </div>
-          <div id="rightlogo"> </div>
-        </div>
+    <div class="clear"> </div>
+    <div class="bottomnav">
+      <div class="btnnav">
+        <div id="leftbtn"> </div>
+        <div id="rightlogo"> </div>
       </div>
-    </div>    
-   <div class="clear"> </div>
-  <footer id="footer"> </footer>
-  </article>
+    </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
+  </div>
 </body>
 </html>

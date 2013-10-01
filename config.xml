@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.bioquest.breasthealth"
+        version   = "1.0.0">
+  <name>BreastHealth</name>
+  <description>The Breast Health App has been developed to promote awareness on breast health.</description>
+  <author href="http://www.bioquestglobal.com/" email="ashok.gowda@bioquestglobal.com">BioQuest Solutions Pvt. Ltd.</author>
+</widget>

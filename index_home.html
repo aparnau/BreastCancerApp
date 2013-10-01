@@ -25,7 +25,7 @@ function myFunction()
 	
 	var locdate=localStorage.getItem('remddate'); 
 	var locmonth=localStorage.getItem('remmonth'); 
-	
+	var message=localStorage.getItem('message');
   // to reset
   // localStorage.clear();
 var today = new Date();
@@ -35,7 +35,7 @@ var tmonth=today.getMonth();
 tmonth=tmonth+1;
 if(locdate==tdate && locmonth==tmonth)
 {
-	alert("Assesment Reminder");
+	alert(message);
 }
 }
 $(document).bind('pagebeforeshow', function () {

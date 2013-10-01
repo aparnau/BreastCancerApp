@@ -70,8 +70,8 @@ if(result==true)
 				var email=document.getElementById('emailid').value;
 				var phno=document.getElementById('phnumber').value;
 			//alert(email+phno);
-			  $.post("http://www.mobiletest.mednl.com/sendnewsletter.php",{data:{email:email,phno:phno}}).done(function(data){
-				
+	  $.post("http://mobiletest.mednl.com/sendnewsletter.php",{data:{email:email,phno:phno}}).done(function(data){
+			alert(data);
 				   });
 			  alert("You Have subscribed successfully");
 			window.location='index_home.html';
@@ -85,10 +85,10 @@ $(document).bind("mobileinit", function () {
 $.mobile.defaultPageTransition = 'none';
 });
 </script>
-
+</head>
 <body>
 <div id="dialog">
-  <form method="post" enctype="text/plain" id="subscribeform" onsubmit="return validateForm()" >
+  <form method="post" enctype="text/plain" id="subscribeform" onSubmit="return validateForm()" >
     <label> please enter your email id if you would like to receive updates from Breast Health website </label>
     <div class="clear"> </div>
     <label>E-mail: </label>

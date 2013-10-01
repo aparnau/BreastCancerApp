@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
 <link rel="stylesheet" href="jquery-ui.css" />
-<link rel="stylesheet" href="jquery.mobile.simpledialog.min.css" />
 <link rel="stylesheet" href="style.css" />
 <link href="gsearch.css" rel="stylesheet" type="text/css"/>
 <script src="jquery-1.9.1.js"></script>
@@ -21,6 +20,9 @@ $('#donebtn').live("click",function()
 });
 });
 
+$(document).ready(function(e) {
+
+});
 </script>
 <body>
 <div id="locatecenter" data-role="page">
@@ -30,7 +32,7 @@ $('#donebtn').live("click",function()
         <!-- <div id="assesheadertext"> </div>-->
         <table id="wrapper">
           <tr>
-            <td> <!--<img src="findcentertext.png" />--> Find Centers</td>
+            <td><!--<img src="findcentertext.png" />--> Find Centers</td>
           </tr>
         </table>
       </div>
@@ -49,7 +51,7 @@ $('#donebtn').live("click",function()
       <option value="Hyderabad">Hyderabad</option>
       <option value="Chennai">Chennai</option>
       <option value="Chandigarh">Chandigarh</option>
-      <option value="Kerala">Cochin</option>
+      <option value="Kochi">Cochin</option>
       <option value="Noida">Noida</option>
       <option value="Lucknow">Lucknow</option>
       <option value="Ahmedabad">Ahmedabad</option>
@@ -67,11 +69,12 @@ $('#donebtn').live("click",function()
       <option value="Goa">Goa</option>
       <option value="Mangalore">Mangalore</option>
     </select>
-    <div id="map" style="height:500px; width:90%; border: 1px solid #979797; margin:10px;"></div>
+    <div id="map" style="height:500px; width:90%; border: 1px solid #979797; margin:10px;display:none;"></div>
     <div id="searchwell"> </div>
+    <div class="clear"> </div>
+    <footer id="footer"> </footer>
   </div>
 </div>
-<footer id="footer"> </footer>
 </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -377,8 +380,8 @@ $('#donebtn').live("click",function()
 						}
 							else if(val =='Ludhiana')
 						{
-							lat=30.90096;
-							lon=75.85728;
+							lat=30.9009650;
+							lon=75.8572758;
 					//	alert('jaipur');
 						gMap = new google.maps.Map(document.getElementById("map"), {					
 					center: new google.maps.LatLng(lat, lon),
@@ -440,9 +443,10 @@ $('#donebtn').live("click",function()
 					zoom:12,
 					mapTypeId: 'roadmap'
 				});
+				 
 						}
-     // var query = "Mammography,"+document.getElementById("queryInput").value;
-	  var query = "mammography,India";
+      var query = "radiology,"+document.getElementById("queryInput").value+",india";
+	 // var query = "radiology";
       gLocalSearch.setCenterPoint(val);
       gLocalSearch.execute(query);
 	  			//	alert(gLocalSearch.length);
@@ -501,10 +505,12 @@ $('#donebtn').live("click",function()
     // Google AJAX Search API.
     function LocalResult(result) {
 		//alert('hi');
+
       var me = this;
       me.result_ = result;
       me.resultNode_ = me.node();
       me.marker_ = me.marker();
+ 
 //	  alert(me.resultNode_);
       google.maps.event.addDomListener(me.resultNode_, 'mouseover', function() {
         // Highlight the marker and result icon when the result is
@@ -523,9 +529,10 @@ $('#donebtn').live("click",function()
 	 // alert(me.resultNode_);
 	  
       document.getElementById("searchwell").appendChild(me.resultNode_);
+			   //var n = $( "div.unselected" ).length;
+//				 alert(n);
     }
- 
-   
+
    
    
    
@@ -533,6 +540,7 @@ $('#donebtn').live("click",function()
     LocalResult.prototype.node = function() {
       if (this.resultNode_) return this.resultNode_;
       return this.html();
+	  
     };
  
     // Returns the GMap marker for this result, creating it with the given
@@ -585,6 +593,7 @@ $('#donebtn').live("click",function()
       this.marker().setOptions({icon: highlight ? gRedIcon : gYellowIcon});
       this.node().className = "unselected" + (highlight ? " red" : "");
     }
+	
     //]]>
     </script>
 </html>

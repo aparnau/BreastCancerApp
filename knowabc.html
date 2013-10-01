@@ -67,12 +67,6 @@ $('#leftnav').live("click",function()
 	  window.location = 'index_home.html'
 });
 });
-$(function(){
-$('#rightnav').live("click",function()
-{
-	  window.location = 'knowabccont.html'
-});
-});
 </script>
 <body>
 <div id="knowabtbc" data-role="page">
@@ -105,19 +99,18 @@ $('#rightnav').live("click",function()
     <div class="bottomnav">
       <div class="btnnav">
         <div id="leftbtn">
-          <button id="leftnav"> </button>
+    <div class="ui-block-a"><a href="index_home.html" data-role="button" rel="external"><img src="leftarrow.png" width="37" height="34"/> </a></div>
+<!--     <button id="leftnav"> </button>       -->
+          <div class="ui-block-b"><a href="knowabccont.html" data-role="button" rel="external"><img src="rightarrow.png" width="37" height="34"/> </a></div>
         </div>
-        <div id="rightbtn">
-          <button id="rightnav"> </button>
-        </div>
+        <div id="rightlogo"> </div>
       </div>
-      <div id="rightlogo"> </div>
     </div>
   </div>
+  <div class="clear"> </div>
   <footer id="footer"> </footer>
 </div>
 </div>
-
 </div>
 </body>
 </html>
