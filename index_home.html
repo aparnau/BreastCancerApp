@@ -25,6 +25,7 @@ function myFunction()
 	
 	var locdate=localStorage.getItem('remddate'); 
 	var locmonth=localStorage.getItem('remmonth'); 
+	var loctime=localStorage.getItem('remtime'); 
 	var message=localStorage.getItem('message');
   // to reset
   // localStorage.clear();
@@ -32,8 +33,10 @@ var today = new Date();
 //alert(today);
 var tdate=today.getDate();
 var tmonth=today.getMonth();
+var ttime=today.getHours()+":"+today.getMinutes();
+
 tmonth=tmonth+1;
-if(locdate==tdate && locmonth==tmonth)
+if(locdate==tdate && locmonth==tmonth && loctime==ttime)
 {
 	alert(message);
 }
@@ -117,6 +120,6 @@ $(document).ready(function() {
     <footer id="footer"> </footer>
    
   </div>
-</div>
+
 </body>
 </html>

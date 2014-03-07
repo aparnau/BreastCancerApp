@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="jquery-ui.css" />
+<link rel="stylesheet" href="style.css" />
+<link href="gsearch.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.9.1.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery-1.7.1.min.js"></script>
+<script src="jquery.mobile-1.1.0.min.js"></script>
+</head>
+
+<body >
+<div id="locatecenter" data-role="page">
+ <div data-role="content">
+  <div id="header">
+   <div id="titleheader">
+    <!-- <div id="assesheadertext"> </div>-->
+    <table id="wrapper">
+     <tr>
+      <td><!--<img src="findcentertext.png" />--> Find Centers</td>
+     </tr>
+    </table>
+   </div>
+   <div class="clear">
+   </div>
+   <div id="btmheader">
+    <button id="donebtn">
+    </button>
+   </div>
+  </div>
+  <div class="clear">
+  </div>
+     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  <select id="queryInput" onChange="doSearch()">
+   <option value="Bangalore" selected="selected">Bangalore</option>
+   <option value="Kolkata">Kolkata</option>
+   <option value="Jaipur">Jaipur</option>
+   <option value="Mumbai">Mumbai</option>
+   <option value="Delhi">Delhi</option>
+   <option value="Hyderabad">Hyderabad</option>
+   <option value="Chennai">Chennai</option>
+   <option value="Chandigarh">Chandigarh</option>
+   <option value="Kochi">Cochin</option>
+   <option value="Noida">Noida</option>
+   <option value="Lucknow">Lucknow</option>
+   <option value="Ahmedabad">Ahmedabad</option>
+   <option value="Ghaziabad">Ghaziabad</option>
+   <option value="Faridabad">Faridabad</option>
+   <option value="Gurgaon">Gurgaon</option>
+   <option value="Bhopal">Bhopal</option>
+   <option value="Guwahati">Guwahati</option>
+   <option value="Bhubaneswar">Bhubaneswar/Cuttack </option>
+   <option value="Pune">Pune</option>
+   <option value="Nagpur">Nagpur</option>
+   <option value="Patna">Patna</option>
+   <option value="Ludhiana">Ludhiana</option>
+   <option value="Jammu">Jammu</option>
+   <option value="Goa">Goa</option>
+   <option value="Mangalore">Mangalore</option>
+  </select>
+  <div id="map" style="height:500px; width:90%; border: 1px solid #979797; margin:10px;display:block;"></div>
+  <div id="searchwell">
+  </div>
+  <div class="clear">
+  </div>
+  <footer id="footer">
+  </footer>
+ </div>
+</div>
+</body>
+<script>
+$(function(){
+$('#donebtn').live("click",function()
+{
+	  window.location = 'index_home.html'
+});
+});
+
+
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+<script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=AIzaSyD8s7WR4da_11XvTml6dpgZylx7dJV5wtg" type="text/javascript"></script>
+<!--<script type="text/javascript"> 
+
+  // Our global state
+    var gLocalSearch;
+    var gMap;
+    var gInfoWindow;
+    var gSelectedResults = [];
+    var gCurrentResults = [];
+    var gSearchForm;
+		
+    // Create our "tiny" marker icon
+    var gYellowIcon = new google.maps.MarkerImage(
+      "http://labs.google.com/ridefinder/images/mm_20_yellow.png",
+      new google.maps.Size(12, 20),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(6, 20));
+    var gRedIcon = new google.maps.MarkerImage(
+      "http://labs.google.com/ridefinder/images/mm_20_red.png",
+      new google.maps.Size(12, 20),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(6, 20));
+    var gSmallShadow = new google.maps.MarkerImage(
+      "http://labs.google.com/ridefinder/images/mm_20_shadow.png",
+      new google.maps.Size(22, 20),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(6, 20));
+ 
+     // Use feature detection on load to test whether the browser is compatitble
+    window.onload = function() {
+		//alert('onload');
+				if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(handle_geo); 
+						//$("#queryInput").change(doSearch);
+					} else {
+						var map = document.getElementById("map");
+						map.innerHTML = "Geolocation is not available... have you considered a forward-thinking browser?";
+					}	
+			};
+			
+			function handle_geo(position){ 
+				//alert(position);
+			//	alert(position.timestamp);
+				// Initialize the map with default UI.
+					gMap = new google.maps.Map(document.getElementById("map"), {
+					center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+      // Create one InfoWindow to open when a marker is clicked.
+     		 gInfoWindow = new google.maps.InfoWindow;
+      	google.maps.event.addListener(gInfoWindow, 'closeclick', function() {
+        unselectMarkers();
+      });			
+ 
+      // Initialize the local searcher
+      gLocalSearch = new GlocalSearch();
+	//  alert(gLocalSearch);
+	 gLocalSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+	  //alert(OnLocalSearch);
+      gLocalSearch.setSearchCompleteCallback(null, OnLocalSearch);
+	  
+			
+			myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var marker = new google.maps.Marker({
+      position: myLatlng, 
+      map: gMap, 
+      title:"You are here!"
+ 			 });
+			doSearch();
+    }
+ 
+    function unselectMarkers() {
+
+      for (var i = 0; i < gCurrentResults.length; i++) {
+        gCurrentResults[i].unselect();
+      }
+    }
+ 
+    function doSearch() {
+
+			var val=document.getElementById("queryInput").value;
+						var lat,lon;
+					//	alert('hi');
+						if(val =='Bangalore')
+						{
+							lat=12.983;
+							lon=77.583;
+							gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						else if(val =='Jaipur')
+						{
+							lat=26.9200;
+							lon=75.8200;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+				else if(val =='Kolkata')
+						{
+							lat=22.572646;
+							lon=88.363895;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+				else if(val =='Mumbai')
+						{
+							lat=19.075984;
+							lon=72.877656;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Delhi')
+						{
+							lat=28.635308;
+							lon=77.224960;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Hyderabad')
+						{
+							lat=17.385044000000000000;
+							lon=78.486671000000000000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Chennai')
+						{
+							lat=13.060422;
+							lon=80.249583;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Chandigarh')
+						{
+							lat=30.733315;
+							lon=76.779418;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Kerala')
+						{
+							lat=9.980000;
+							lon=76.280000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Noida')
+						{
+							lat=28.535516;
+							lon=77.391026;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+							else if(val =='Ahmedabad')
+						{
+							lat=23.03000;
+							lon=72.58000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Ghaziabad')
+						{
+							lat=28.66916;
+							lon=77.45376;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Faridabad')
+						{
+							lat=28.68150;
+							lon=76.62539;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Gurgaon')
+						{
+							lat=28.45950;
+							lon=77.02664;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Bhopal')
+						{
+							lat=23.25993;
+							lon=77.41262;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Guwahati')
+						{
+							lat=26.14713;
+							lon=91.73555;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Pune')
+						{
+							lat=18.52043;
+							lon=73.85674;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Nagpur')
+						{
+							lat=21.14580;
+							lon=79.08815;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Patna')
+						{
+							lat=25.61046;
+							lon=85.14167;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Ludhiana')
+						{
+							lat=30.9009650;
+							lon=75.8572758;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Jammu')
+						{
+							lat=32.72660;
+							lon=74.85703;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Goa')
+						{
+							lat=15.29933;
+							lon=74.12400;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Mangalore')
+						{
+							lat=12.91414;
+							lon=74.85596;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Lucknow')
+						{
+							lat=26.8465108;
+							lon=80.9466832;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Bhubaneswar')
+						{
+							lat=20.29606;
+							lon=85.82454;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+				 
+						}
+							//alert(val);
+      var query = "radiology,"+document.getElementById("queryInput").value+",india";
+	 // var query = "radiology";
+	 
+      gLocalSearch.setCenterPoint(val);
+		
+      gLocalSearch.execute(query);
+	  		//alert(gLocalSearch.length);
+ // alert(query);
+    }
+ 
+    // Called when Local Search results are returned, we clear the old
+    // results and load the new ones.
+    function OnLocalSearch() {
+		//alert(gLocalSearch.results);
+		//alert('hi');
+		
+		      if (!gLocalSearch.results) return;
+	//alert(gLocalSearch.results);
+      var searchWell = document.getElementById("searchwell");
+	 // alert(searchWell);
+     // Clear the map and the old search well
+      searchWell.innerHTML = "";
+	 // alert(gCurrentResults.length);
+      for (var i = 0; i < gCurrentResults.length; i++) {
+		 // alert('hi');
+    	    gCurrentResults[i].marker().setMap(null);
+
+      }
+      // Close the infowindow
+      gInfoWindow.close();
+ 
+      gCurrentResults = [];
+	 // alert(gLocalSearch.results);
+      for (var i = 0; i < 20; i++) {
+        gCurrentResults.push(new LocalResult(gLocalSearch.results[i]));
+	//alert(gLocalSearch.results[i]);
+      }
+ 
+      var attribution = gLocalSearch.getAttribution();
+	  
+	 // alert("att"+attribution);
+      if (attribution) {
+        document.getElementById("searchwell").appendChild(attribution);
+      }
+ 
+      // Move the map to the first result
+      var first = gLocalSearch.results[0];
+     // gMap.setCenter(new google.maps.LatLng(parseFloat(first.lat), parseFloat(first.lng)));
+ 
+    }
+ 
+    // Cancel the form submission, executing an AJAX Search API search.
+    function CaptureForm(searchForm) {
+		//alert('hfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgi');
+      gLocalSearch.execute(searchForm.input.value);
+      return false;
+    }
+ 
+    // A class representing a single Local Search result returned by the
+    // Google AJAX Search API.
+    function LocalResult(result) {
+		//alert('hi');
+      var me = this;
+      me.result_ = result;
+      me.resultNode_ = me.node();
+      me.marker_ = me.marker();
+ 
+//	  alert(me.resultNode_);
+      google.maps.event.addDomListener(me.resultNode_, 'mouseover', function() {
+        // Highlight the marker and result icon when the result is
+        // mouseovered.  Do not remove any other highlighting at this time.
+        me.highlight(true);
+      });
+      google.maps.event.addDomListener(me.resultNode_, 'mouseout', function() {
+        // Remove highlighting unless this marker is selected (the info
+        // window is open).
+        if (!me.selected_) me.highlight(false);
+      });
+      google.maps.event.addDomListener(me.resultNode_, 'click', function() {
+        me.select();
+      });
+	 // alert('sahdhashdasdj');
+	 // alert(me.resultNode_);
+	  
+      document.getElementById("searchwell").appendChild(me.resultNode_);
+			   //var n = $( "div.unselected" ).length;
+//				 alert(n);
+    }
+
+   
+   
+   
+   
+    LocalResult.prototype.node = function() {
+      if (this.resultNode_) return this.resultNode_;
+      return this.html();
+	  
+    };
+ 
+    // Returns the GMap marker for this result, creating it with the given
+    // icon if it has not already been created.
+    LocalResult.prototype.marker = function() {
+      var me = this;
+      if (me.marker_) return me.marker_;
+      var marker = me.marker_ = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat(me.result_.lat),
+                                         parseFloat(me.result_.lng)),
+        icon: gYellowIcon, shadow: gSmallShadow, map: gMap});
+      google.maps.event.addListener(marker, "click", function() {
+        me.select();
+
+      });
+      return marker;
+		//alert(marker);
+    };
+ 
+    // Unselect any selected markers and then highlight this result and
+    // display the info window on it.
+    LocalResult.prototype.select = function() {
+      unselectMarkers();
+      this.selected_ = true;
+      this.highlight(true);
+      gInfoWindow.setContent(this.html(true));
+      gInfoWindow.open(gMap, this.marker());
+    };
+ 
+    LocalResult.prototype.isSelected = function() {
+      return this.selected_;
+    };
+ 
+    // Remove any highlighting on this result.
+    LocalResult.prototype.unselect = function() {
+      this.selected_ = false;
+      this.highlight(false);
+    };
+ 
+    // Returns the HTML we display for a result before it has been "saved"
+    LocalResult.prototype.html = function() {
+      var me = this;
+      var container = document.createElement("div");
+      container.className = "unselected";
+      container.appendChild(me.result_.html.cloneNode(true));
+      return container;
+    }
+ 
+    LocalResult.prototype.highlight = function(highlight) {
+      this.marker().setOptions({icon: highlight ? gRedIcon : gYellowIcon});
+      this.node().className = "unselected" + (highlight ? " red" : "");
+    }
+	
+    //]]>
+    </script>-->
+    <script>
+		   window.onload = function() {
+		//alert('onload');
+				if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(handle_geo); 
+						//$("#queryInput").change(doSearch);
+					} else {
+						var map = document.getElementById("map");
+						map.innerHTML = "Geolocation is not available... have you considered a forward-thinking browser?";
+					}	
+			};
+			
+			function handle_geo(position){ 
+				//alert(position);
+			//	alert(position.timestamp);
+				// Initialize the map with default UI.
+					gMap = new google.maps.Map(document.getElementById("map"), {
+					center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+				
+				
+      // Create one InfoWindow to open when a marker is clicked.
+     		 gInfoWindow = new google.maps.InfoWindow;
+      	google.maps.event.addListener(gInfoWindow, 'closeclick', function() {
+        unselectMarkers();
+      });			
+ 
+      // Initialize the local searcher
+     // gLocalSearch = new GlocalSearch();
+//	//  alert(gLocalSearch);
+//	 gLocalSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+//	  //alert(OnLocalSearch);
+//      gLocalSearch.setSearchCompleteCallback(null, OnLocalSearch);
+	  
+			
+			myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			var marker = new google.maps.Marker({
+      position: myLatlng, 
+      map: gMap, 
+      title:"You are here!"
+ 			 });
+		//	doSearch();
+    }
+		
+    function doSearch() {
+
+			var val=document.getElementById("queryInput").value;
+						var lat,lon;
+					//	alert('hi');
+						if(val =='Bangalore')
+						{
+							lat=12.983;
+							lon=77.583;
+							gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						else if(val =='Jaipur')
+						{
+							lat=26.9200;
+							lon=75.8200;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+				else if(val =='Kolkata')
+						{
+							lat=22.572646;
+							lon=88.363895;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+				else if(val =='Mumbai')
+						{
+							lat=19.075984;
+							lon=72.877656;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Delhi')
+						{
+							lat=28.635308;
+							lon=77.224960;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Hyderabad')
+						{
+							lat=17.385044000000000000;
+							lon=78.486671000000000000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Chennai')
+						{
+							lat=13.060422;
+							lon=80.249583;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Chandigarh')
+						{
+							lat=30.733315;
+							lon=76.779418;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Kerala')
+						{
+							lat=9.980000;
+							lon=76.280000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+						else if(val =='Noida')
+						{
+							lat=28.535516;
+							lon=77.391026;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+						
+							else if(val =='Ahmedabad')
+						{
+							lat=23.03000;
+							lon=72.58000;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Ghaziabad')
+						{
+							lat=28.66916;
+							lon=77.45376;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Faridabad')
+						{
+							lat=28.68150;
+							lon=76.62539;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Gurgaon')
+						{
+							lat=28.45950;
+							lon=77.02664;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Bhopal')
+						{
+							lat=23.25993;
+							lon=77.41262;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Guwahati')
+						{
+							lat=26.14713;
+							lon=91.73555;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Pune')
+						{
+							lat=18.52043;
+							lon=73.85674;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Nagpur')
+						{
+							lat=21.14580;
+							lon=79.08815;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Patna')
+						{
+							lat=25.61046;
+							lon=85.14167;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Ludhiana')
+						{
+							lat=30.9009650;
+							lon=75.8572758;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Jammu')
+						{
+							lat=32.72660;
+							lon=74.85703;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Goa')
+						{
+							lat=15.29933;
+							lon=74.12400;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Mangalore')
+						{
+							lat=12.91414;
+							lon=74.85596;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Lucknow')
+						{
+							lat=26.8465108;
+							lon=80.9466832;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+						}
+							else if(val =='Bhubaneswar')
+						{
+							lat=20.29606;
+							lon=85.82454;
+					//	alert('jaipur');
+						gMap = new google.maps.Map(document.getElementById("map"), {					
+					center: new google.maps.LatLng(lat, lon),
+					zoom:12,
+					mapTypeId: 'roadmap'
+				});
+				 
+						}
+							//alert(val);
+      var query = "radiology,"+document.getElementById("queryInput").value+",india";
+			alert(query);
+			
+			var input = (document.getElementById('pac-input'));
+			
+	input.value=query;
+//map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+			
+			var searchBox = new google.maps.places.SearchBox((input));
+    var places = searchBox.getPlaces();
+		alert(places);
+			
+	 // var query = "radiology";
+	 
+     // gLocalSearch.setCenterPoint(val);
+		
+     // gLocalSearch.execute(query);
+	  		//alert(gLocalSearch.length);
+ // alert(query);
+    }		
+		
+		
+
+
+    
+//function initialize() {
+
+  //var markers = [];
+ // var map = new google.maps.Map(document.getElementById('map'), {
+ //   mapTypeId: google.maps.MapTypeId.ROADMAP
+ // });
+
+ // var defaultBounds = new google.maps.LatLngBounds(
+ //     new google.maps.LatLng(12.983, 77.583),
+ //     new google.maps.LatLng(12.983, 77.583));
+//  map.fitBounds(defaultBounds);
+
+  // Create the search box and link it to the UI element.
+ // var input = /** @type {HTMLInputElement} */(document.getElementById('pac-input'));
+			
+	
+ // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+ // var searchBox = new google.maps.places.SearchBox(
+ //   /** @type {HTMLInputElement} */(input));
+
+  // [START region_getplaces]
+  // Listen for the event fired when the user selects an item from the
+  // pick list. Retrieve the matching places for that item.
+ // google.maps.event.addListener(searchBox, 'places_changed', function() {});
+  // [END region_getplaces]
+
+  // Bias the SearchBox results towards places that are within the bounds of the
+  // current map's viewport.
+ 
+//}
+
+
+
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+		</script>
+    
+</html>

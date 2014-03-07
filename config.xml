@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.bioquest.breasthealth"
-        version   = "1.0.0">
+        id        = "com.BreastHealth"
+        version   = "2.0.0">
   <name>BreastHealth</name>
-  <description>The Breast Health App has been developed to promote awareness on breast health.</description>
+  <description>The Breast Health App has been developed to promote awareness on breast health. Early detection is key to reducing the chances of death due to breast cancer. Learn about the risk factors for developing breast cancer, signs and symptoms to recognize breast cancer, and recommendations for early detection. The app also provides tools to assess ones risk of developing breast cancer, locate mammography centers and set up reminders for breast exams and mammography appointments.</description>
   <author href="http://www.bioquestglobal.com/" email="ashok.gowda@bioquestglobal.com">BioQuest Solutions Pvt. Ltd.</author>
+  
+  <gap:plugin name="com.adobe.plugins.pushplugin" />
 </widget>

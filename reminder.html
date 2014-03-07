@@ -6,9 +6,12 @@
   <link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
   <link rel="stylesheet" href="jquery-ui.css" />
   <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/ >
   <script src="jquery-1.9.1.js"></script>
   <script src="jquery-ui.js"></script>
   <script src="jquery.mobile-1.3.1.min.js"></script>
+
+<script src="jquery.datetimepicker.js"></script>
   <script>
 $(function(){
 $('#donebtn').click(function()
@@ -22,19 +25,30 @@ var remmonth,remdate;
 
 $(function() {
 
-      $( "#datepicker" ).datepicker({
-	onSelect: function(dateText, inst) {
+      $( "#datepicker" ).datetimepicker({
+				
+	onChangeDateTime:function(dp,$input) {
       /* alert("Selected: " + dateText +
       "\n\nid: " + inst.id +
       "\nselectedDay: " + inst.selectedDay +
       "\nselectedMonth: " + inst.selectedMonth +
       "\nselectedYear: " + inst.selectedYear);*/
-	  	remdate=inst.selectedDay;
-	    remmonth=inst.selectedMonth+1;
-	  //	alert(remmonth);
-	//	alert(remdate);
+			var value=$input.val();
+		var ret = value.split(" ");
+var fulldate = ret[0];
+
+	var fulldate = fulldate.split("/");
+		var remmonth=fulldate[1];
+	var remdate=fulldate[2];
+
+var remtime = ret[1];
+	  //	remdate=inst.selectedDay;
+	   // remmonth=inst.selectedMonth+1;
+	 // 	alert(remmonth);
+		//alert(remdate);
 	 localStorage.setItem('remddate', remdate);
 	localStorage.setItem('remmonth',remmonth);	
+		localStorage.setItem('remtime',remtime);	
 	   },
 	   showButtonPanel: true,
 	    minDate: 0
