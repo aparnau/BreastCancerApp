@@ -34,7 +34,6 @@
   </div>
   <div class="clear">
   </div>
-     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
   <select id="queryInput" onChange="findPlaces(); return false;">
    <option value="Bangalore" selected="selected">Bangalore</option>
    <option value="Kolkata">Kolkata</option>
@@ -82,16 +81,11 @@ $('#donebtn').live("click",function()
 
 
 </script>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 
-
-
-<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>-->
-
-    <script>
+<script>
 		var geocoder;
 var map;
 var markers = Array();
@@ -538,25 +532,29 @@ var val=document.getElementById("queryInput").value;
 function createMarkers(results, status) {
 
 	//alert('hi');
-	alert(status);
-	alert(results);
+	//alert(status);
+	//alert(results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 		
 	      // if we have found something - clear map (overlays)
         clearOverlays();
-
+	 document.getElementById('searchwell').innerHTML="";
         // and create new markers by search result
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
-       var place = results[i];
-         var add= place.formatted_address;
-				
-				 alert(add);
+     //  var place = results[i].formatted_address;
+       //  var add= place.formatted_address;
+			 //alert(results[i].vicinity);
+		var cityname=	 results[i].name;
+		var address=results[i].vicinity;
+			 document.getElementById('searchwell').innerHTML+='<div class="maplist"><span style="font-weight:bold;">'+cityname+'</span><br/>'+address+'</div> <hr>';
+			 
 				}
 				
 				// clone the .html node from the result
 
     } else if (status == google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
+			document.getElementById('searchwell').innerHTML="";
         alert('Sorry, nothing is found');
     }
 }
@@ -576,6 +574,7 @@ function createMarker(obj) {
     var infowindow = new google.maps.InfoWindow({
         content: '<img src="' + obj.icon + '" /><font style="color:#000;">' + obj.name + 
         '<br />Rating: ' + obj.rating + '<br />Vicinity: ' + obj.vicinity + '</font>'
+
     });
 
     // add event handler to current marker
@@ -592,5 +591,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		
 
 		</script>
-    
 </html>

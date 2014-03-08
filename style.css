@@ -614,7 +614,7 @@ img.centered {
 	font-weight: normal;
 	text-decoration: none;
 }
-#searchwell.unselected .gs-result .gs-title, .gs-result .gs-title * {
+.maplist {
 	color: #D70283;
 	font-weight: normal;
 	text-decoration: none;
